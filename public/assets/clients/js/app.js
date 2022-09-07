@@ -14132,6 +14132,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/home.scss":
+/*!*********************************!*\
+  !*** ./resources/css/home.scss ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!
@@ -31479,7 +31492,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/assets/clients/js/app": 0,
-/******/ 			"assets/clients/css/app": 0
+/******/ 			"assets/clients/css/app": 0,
+/******/ 			"assets/clients/css/home": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -31529,8 +31543,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["assets/clients/css/app"], () => (__webpack_require__("./resources/css/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/home"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/home"], () => (__webpack_require__("./resources/css/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/home"], () => (__webpack_require__("./resources/css/home.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

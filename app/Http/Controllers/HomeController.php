@@ -11,8 +11,7 @@ class HomeController extends Controller
 {
    public function index()
    {
-      $user = DB::select('SELECT * FROM users WHERE id > ?', ['1']);  
-      return view("components.home", []);
+      return view("ui.home");
    }
 
    public function getAdd()
