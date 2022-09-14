@@ -1,0 +1,21 @@
+.login {
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        margin: 0 auto;
+        padding: 20px 0;
+
+        &__label {
+            margin: 8px 0;
+        }
+
+        &__input {
+
+        }
+
+        &__submit {
+            margin-top: 12px;
+        }
+    }
+}

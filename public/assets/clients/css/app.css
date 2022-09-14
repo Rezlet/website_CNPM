@@ -10916,6 +10916,7 @@ textarea.form-control-lg {
 }
 .header__container {
   display: flex;
+  padding: 12px 0;
 }
 .header__container__logo {
   width: 8.8541666667vw;
@@ -10968,6 +10969,10 @@ textarea.form-control-lg {
   align-items: center;
   font-size: 12px;
   font-weight: bold;
+  transition: all 0.25s;
+}
+.header__container__feature__list__item:hover {
+  color: #ea1c04;
 }
 .header__container__feature__list__item svg {
   margin-right: 8px;
@@ -10986,18 +10991,24 @@ textarea.form-control-lg {
   border-radius: 8px;
   padding: 12px;
   text-align: center;
+  cursor: pointer;
 }
 .header__function__categories__content svg {
   margin-right: 8px;
 }
 .header__function__categories__content__text {
   margin: 0;
-  cursor: pointer;
 }
 .header__function__categories__menu {
   position: absolute;
   left: 0;
   width: 100%;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: all 0.5s;
+}
+.header__function__categories__menu.show {
+  transform: scaleY(1);
 }
 .header__function__categories__menu__list {
   margin-top: 12px;
@@ -11006,7 +11017,6 @@ textarea.form-control-lg {
   border-radius: 8px;
 }
 .header__function__categories__menu__list__item {
-  position: relative;
   padding: 8px 4px;
   width: 100%;
   background-color: #fff;
@@ -11018,7 +11028,7 @@ textarea.form-control-lg {
   color: #fff;
 }
 .header__function__categories__menu__list__item:hover::after {
-  transform: scale(1);
+  scale: 1;
 }
 .header__function__categories__menu__list__item:hover .header__function__categories__menu__list__item__submenu {
   transform: scale(1);
@@ -11029,7 +11039,7 @@ textarea.form-control-lg {
   flex-wrap: wrap;
   width: 920px;
   left: 100%;
-  top: 0;
+  top: 12px;
   margin-left: 12px;
   height: 500px;
   background-color: #fff;
@@ -11058,17 +11068,17 @@ textarea.form-control-lg {
 }
 .header__function__categories__menu__list__item::after {
   content: "";
-  transform: scale(0);
+  scale: 0;
   right: -35px;
-  border-top: 17px solid transparent;
-  border-left: 17px solid #ea1c04;
-  border-bottom: 17px solid transparent;
+  border-top: 18px solid transparent;
+  border-left: 18px solid #ea1c04;
+  border-bottom: 18px solid transparent;
   border-right: 18px solid transparent;
   position: absolute;
-  transform-origin: left;
-  top: 0;
+  transform-origin: top left;
   margin: auto;
   transition: all 0.5s;
+  transform: translateY(-80%);
 }
 .header__function__categories__menu__list__item__content {
   display: flex;
@@ -11109,21 +11119,21 @@ textarea.form-control-lg {
 }
 
 body {
-  display: grid;
   margin: 0;
   grid-template-columns: repeat(2, 1fr);
-  font-family: "Kanit", sans-serif;
-  height: 100vh;
+  font-family: "Robotoxx", sans-serif;
 }
 
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: #505050;
+  display: block;
 }
 @media only screen and (max-width: 1200px) {
-  html, body {
+  html,
+body {
     width: 100vw;
     height: 100vh;
   }

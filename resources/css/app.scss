@@ -4,30 +4,26 @@
 @import "./components/footer.scss";
 @import "./variable.scss";
 body {
-    display: grid;
     margin: 0;
     grid-template-columns: repeat(2, 1fr);
-    font-family: "Kanit", sans-serif;
-
-    
-    height: 100vh;
-
+    font-family: $font;
 }
-html, body {
-    @media only screen and (max-width: $breakPointMedium){
+html,
+body {
+    @media only screen and (max-width: $breakPointMedium) {
         width: 100vw;
         height: 100vh;
     }
     max-width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
-    background-color: #505050;
+    display: block;
+    // background-color: #505050;
 }
 
 *:focus {
     outline: none;
 }
-
 
 * {
     box-sizing: border-box;

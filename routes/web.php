@@ -3,9 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Http\Response;
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +17,9 @@ use Illuminate\Http\Response;
 */
 
 Route::get("/" , [HomeController::class, "index"])->name('home');
+
+Route::prefix("login")->name("login.")->group(function () {
+    Route::get("/", [LoginController::class, "login"])->name("index");
+    Route::get("/register", [LoginController::class, "registration"])->name("register");
+
+});

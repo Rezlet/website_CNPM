@@ -230,6 +230,96 @@
                             </div>
                         </div>
                     </div>
+                    <div class="header__function__categories__menu__list__item">
+                        <div class="header__function__categories__menu__list__item__content">
+                            <i class="fa-solid fa-laptop"></i>
+                            <p class="header__function__categories__menu__list__item__content__text">
+                                Laptop gaming
+                            </p>
+                        </div>
+
+                        <div class="header__function__categories__menu__list__item__submenu">
+                            <div class="header__function__categories__menu__list__item__submenu__subcontent">
+                                <h6 class="header__function__categories__menu__list__item__submenu__subcontent__title">
+                                    Thương hiệu
+                                </h6>
+
+                                <div class="header__function__categories__menu__list__item__submenu__subcontent__list">
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        ACER
+                                    </a>
+
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        ASUS
+                                    </a>
+
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        MSI
+                                    </a>
+
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        LENOVO
+                                    </a>
+
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        DELL
+                                    </a>
+
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        HP
+                                    </a>
+                                </div>
+
+
+                            </div>
+
+                            <div class="header__function__categories__menu__list__item__submenu__subcontent">
+                                <h6 class="header__function__categories__menu__list__item__submenu__subcontent__title">
+                                    Thương hiệu
+                                </h6>
+
+                                <div class="header__function__categories__menu__list__item__submenu__subcontent__list">
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        ACER
+                                    </a>
+
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        ASUS
+                                    </a>
+
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        MSI
+                                    </a>
+
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        LENOVO
+                                    </a>
+
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        DELL
+                                    </a>
+
+                                    <a href=""
+                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                        HP
+                                    </a>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
