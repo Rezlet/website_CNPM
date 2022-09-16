@@ -23,7 +23,8 @@ class CreateCommentsTable extends Migration
             $table->foreignId("product_id")->index()->constrained("products");
             $table->tinyText("context");
             $table->date("delete_at")->nullable();
-            $table->timestamps();
+            $table->timestamp("create_at")->useCurrent();
+            $table->timestamp("update_at")->useCurrent();
         });
 
         Schema::table('order_details', function (Blueprint $table) {

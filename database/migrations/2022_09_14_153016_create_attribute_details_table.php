@@ -19,7 +19,8 @@ class CreateAttributeDetailsTable extends Migration
             $table->foreignId("category_id")->constrained("categories");
             $table->foreignId("property_id")->constrained("properties");
 
-            $table->timestamps();
+            $table->timestamp("create_at")->useCurrent();
+            $table->timestamp("update_at")->useCurrent();
         });
     }
 

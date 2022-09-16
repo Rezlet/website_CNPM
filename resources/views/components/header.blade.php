@@ -1,10 +1,11 @@
+{{-- {{dd($product_attributes[1][0])}} --}}
+
 <header class="header">
     <div class="header__container container">
         <div class="header__container__logo">
             <img src="//theme.hstatic.net/1000026716/1000440777/14/logo.svg?v=28492" alt=""
                 class="header__container__logo__image">
         </div>
-
         <div class="header__container__search">
             <form action="{{ route('home') }}" method="GET" class="header__container__search__form">
                 <input placeholder="Nhập mã hoặc tên sản phẩm..." type="text" id="keyword "name="keyword"
@@ -48,278 +49,41 @@
                 </h6>
             </div>
 
-            <div class="header__function__categories__menu">
+            <div class="header__function__categories__menu show">
                 <div class="header__function__categories__menu__list">
-                    <div class="header__function__categories__menu__list__item">
-                        <div class="header__function__categories__menu__list__item__content">
-                            <i class="fa-solid fa-laptop"></i>
-                            <p class="header__function__categories__menu__list__item__content__text">
-                                Laptop gaming
-                            </p>
-                        </div>
-
-                        <div class="header__function__categories__menu__list__item__submenu">
-                            <div class="header__function__categories__menu__list__item__submenu__subcontent">
-                                <h6 class="header__function__categories__menu__list__item__submenu__subcontent__title">
-                                    Thương hiệu
-                                </h6>
-
-                                <div class="header__function__categories__menu__list__item__submenu__subcontent__list">
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ACER
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ASUS
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        MSI
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        LENOVO
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        DELL
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        HP
-                                    </a>
-                                </div>
-
-
+                    @foreach ($categories as $category)
+                        <div class="header__function__categories__menu__list__item">
+                            <div class="header__function__categories__menu__list__item__content">
+                                <i class="fa-solid fa-laptop"></i>
+                                <p class="header__function__categories__menu__list__item__content__text">
+                                    {{ $category->name }}
+                                </p>
                             </div>
+                            <div class="header__function__categories__menu__list__item__submenu">
+                                @foreach ($category->attribute_details->groupBy("property_id")->all() as $property)
+                                    <div class="header__function__categories__menu__list__item__submenu__subcontent">
+                              
+                                        <h6
+                                            class="header__function__categories__menu__list__item__submenu__subcontent__title">
+                                            {{ $property[0]->properties->name }}
+                                        </h6>
 
-                            <div class="header__function__categories__menu__list__item__submenu__subcontent">
-                                <h6 class="header__function__categories__menu__list__item__submenu__subcontent__title">
-                                    Thương hiệu
-                                </h6>
+                                        <div
+                                            class="header__function__categories__menu__list__item__submenu__subcontent__list">
+                                            @foreach ($category->attribute_details->groupBy("attribute_id")->all() as $attribute)
+                                                <a href=""
+                                                    class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
+                                                    {{$attribute[0]->attributes->name}}
+                                                </a>
+                                            @endforeach
 
-                                <div class="header__function__categories__menu__list__item__submenu__subcontent__list">
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ACER
-                                    </a>
+                                        </div>
 
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ASUS
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        MSI
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        LENOVO
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        DELL
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        HP
-                                    </a>
-                                </div>
-
-
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
-                    </div>
-                    <div class="header__function__categories__menu__list__item">
-                        <div class="header__function__categories__menu__list__item__content">
-                            <i class="fa-solid fa-laptop"></i>
-                            <p class="header__function__categories__menu__list__item__content__text">
-                                Laptop gaming
-                            </p>
-                        </div>
-
-                        <div class="header__function__categories__menu__list__item__submenu">
-                            <div class="header__function__categories__menu__list__item__submenu__subcontent">
-                                <h6 class="header__function__categories__menu__list__item__submenu__subcontent__title">
-                                    Thương hiệu
-                                </h6>
-
-                                <div class="header__function__categories__menu__list__item__submenu__subcontent__list">
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ACER
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ASUS
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        MSI
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        LENOVO
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        DELL
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        HP
-                                    </a>
-                                </div>
-
-
-                            </div>
-
-                            <div class="header__function__categories__menu__list__item__submenu__subcontent">
-                                <h6 class="header__function__categories__menu__list__item__submenu__subcontent__title">
-                                    Thương hiệu
-                                </h6>
-
-                                <div class="header__function__categories__menu__list__item__submenu__subcontent__list">
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ACER
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ASUS
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        MSI
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        LENOVO
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        DELL
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        HP
-                                    </a>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="header__function__categories__menu__list__item">
-                        <div class="header__function__categories__menu__list__item__content">
-                            <i class="fa-solid fa-laptop"></i>
-                            <p class="header__function__categories__menu__list__item__content__text">
-                                Laptop gaming
-                            </p>
-                        </div>
-
-                        <div class="header__function__categories__menu__list__item__submenu">
-                            <div class="header__function__categories__menu__list__item__submenu__subcontent">
-                                <h6 class="header__function__categories__menu__list__item__submenu__subcontent__title">
-                                    Thương hiệu
-                                </h6>
-
-                                <div class="header__function__categories__menu__list__item__submenu__subcontent__list">
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ACER
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ASUS
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        MSI
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        LENOVO
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        DELL
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        HP
-                                    </a>
-                                </div>
-
-
-                            </div>
-
-                            <div class="header__function__categories__menu__list__item__submenu__subcontent">
-                                <h6 class="header__function__categories__menu__list__item__submenu__subcontent__title">
-                                    Thương hiệu
-                                </h6>
-
-                                <div class="header__function__categories__menu__list__item__submenu__subcontent__list">
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ACER
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        ASUS
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        MSI
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        LENOVO
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        DELL
-                                    </a>
-
-                                    <a href=""
-                                        class="header__function__categories__menu__list__item__submenu__subcontent__list__item">
-                                        HP
-                                    </a>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

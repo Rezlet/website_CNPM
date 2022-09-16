@@ -11130,6 +11130,7 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   display: block;
+  height: 100vh;
 }
 @media only screen and (max-width: 1200px) {
   html,

@@ -19,10 +19,11 @@ class CreateOrdersTable extends Migration
             $table->string("email", 30)->nullable();
             $table->string("address", 50);
             $table->mediumText("note")->nullable();
-            $table->date("order_date");
+            $table->date("order_date")->default(date("Y-m-d"));
             $table->unsignedDouble("total");
 
-            $table->timestamps();
+            $table->timestamp("create_at")->useCurrent();
+            $table->timestamp("update_at")->useCurrent();
         });
     }
 

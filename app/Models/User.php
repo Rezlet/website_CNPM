@@ -23,6 +23,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected $nullable = [
+        "updated_at",
+        "delete_at"
+    ];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -30,15 +34,19 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $table = "users";
+
+
+    public function roles()
+    {
+        // return $this->hasMany("roles", "role_id", "id");
+        return $this->belongsTo(Role::class, "role_id", "id");
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

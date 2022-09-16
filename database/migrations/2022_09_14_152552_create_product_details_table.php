@@ -17,7 +17,8 @@ class CreateProductDetailsTable extends Migration
             $table->id();
             $table->foreignId("attribute_id")->constrained("attributes");
             $table->foreignId("product_id")->constrained("products");
-            $table->timestamps();
+            $table->timestamp("create_at")->useCurrent();
+            $table->timestamp("update_at")->useCurrent();
         });
     }
 

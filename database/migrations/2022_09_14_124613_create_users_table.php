@@ -22,7 +22,8 @@ class CreateUsersTable extends Migration
             $table->string("password", 15);
             $table->string("email", 30)->unique();
             $table->date("delete_at")->nullable();
-            $table->timestamps();
+                  $table->timestamp("create_at")->useCurrent();
+            $table->timestamp("update_at")->useCurrent();
         });
     }
 

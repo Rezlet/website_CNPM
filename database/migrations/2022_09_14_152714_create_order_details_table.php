@@ -18,7 +18,10 @@ class CreateOrderDetailsTable extends Migration
             $table->id();
             $table->foreignId("product_id")->constrained("products");
             $table->foreignId("order_id")->constrained("orders");
-            $table->timestamps();
+            $table->integer("amount");
+            $table->unsignedDouble("price");
+            $table->timestamp("create_at")->useCurrent();
+            $table->timestamp("update_at")->useCurrent();
         });
 
 

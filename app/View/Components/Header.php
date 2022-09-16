@@ -2,9 +2,10 @@
 
 namespace App\View\Components;
 
+use App\Models\Category;
 use Illuminate\View\Component;
 
-class Home extends Component
+class Header extends Component
 {
     /**
      * Create a new component instance.
@@ -23,7 +24,9 @@ class Home extends Component
      */
     public function render()
     {
-        
-        return view('components.home');
+        $categories = Category::all();
+        return view('components.header', [
+            "categories" => $categories,
+        ]);
     }
 }

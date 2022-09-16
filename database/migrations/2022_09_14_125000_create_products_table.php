@@ -21,8 +21,9 @@ class CreateProductsTable extends Migration
             $table->integer("discount")->nullable();
             $table->string("thumbnail", 120);
             $table->longText("description")->nullable();
-            $table->timestamps();
-            $table->date("delete_at")->nullable();
+            $table->timestamp("create_at")->useCurrent();
+            $table->timestamp("update_at")->useCurrent();
+            $table->date("deleted_at")->nullable();
 
 
         });

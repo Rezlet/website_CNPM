@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    @include('components.header')
+    <x-header/>
     @yield('content')
 
     {{-- @include('components.footer') --}}
