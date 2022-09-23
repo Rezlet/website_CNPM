@@ -10,6 +10,11 @@ class Users extends Model
 {
     use HasFactory;
     protected $table = 'users';
+    protected $nullable = [
+        "updated_at",
+        "created_at"
+    ];
+
     public function getAllUser()
     {
         $users = DB::select('SELECT * from users ORDER BY create_at');

@@ -69,13 +69,4 @@ class baseDB extends Model
         return DB::delete("DELETE FROM $tableName WHERE id=?", [$id]);
     }
 
-    public function learnQueryBuilder(){
-        $list = DB::table("users")
-        ->where('id', 11)
-        ->update([
-            'fullname' => "Nguyễn Văn Tèo",
-        ]);
-
-        dd($list);
-    }
 }

@@ -3,8 +3,9 @@
 namespace App\View\Components;
 
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\View\Component;
-
+use Session;
 class Header extends Component
 {
     /**
@@ -25,8 +26,13 @@ class Header extends Component
     public function render()
     {
         $categories = Category::all();
+        $user = null;
+        if(session()->has("loginId")){
+            $user = User::where("id", "=",session()->get("loginId"))->first();
+        }
         return view('components.header', [
             "categories" => $categories,
+            "user" => $user
         ]);
     }
 }

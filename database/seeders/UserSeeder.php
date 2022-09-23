@@ -16,37 +16,37 @@ class UserSeeder extends Seeder
     {
         DB::table("users")->insert([
             "role_id" => 1,
-            "username" => "manager_1",
+            "name" => "manager_1",
             "password" => "manager_1",
             "email" => "manager_1@gmail.com",
 
-            "delete_at" => date("Y-m-d")
+            "deleted_at" => date("Y-m-d")
         ]);
 
         DB::table("users")->insert([
             "role_id" => 2,
-            "username" => "admin",
+            "name" => "admin",
             "password" => "admin",
             "email" => "admin@gmail.com",
 
-            "delete_at" => date("Y-m-d")
+            "deleted_at" => date("Y-m-d")
         ]);
 
         DB::table("users")->insert([
             "role_id" => 3,
-            "username" => "user",
+            "name" => "user",
             "password" => "user",
             "email" => "user@gmail.com",
 
-            "delete_at" => date("Y-m-d")
+            "deleted_at" => date("Y-m-d")
         ]);
 
         DB::table("users")->insert([
             "role_id" => 1,
-            "username" => "manager_2",
+            "name" => "manager_2",
             "password" => "manager_2",
             "email" => "manager_2@gmail.com",
-            "delete_at" => date("Y-m-d")
+            "deleted_at" => date("Y-m-d")
         ]);
     }
 }

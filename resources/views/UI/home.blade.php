@@ -7,6 +7,10 @@
 
 @section('content')
 <div class="home container">
+    @if (Session::has("loginId"))
+        <h1>{{Session::get("loginId")}}</h1>
+    @endif
+    
 </div>
 @endsection
 

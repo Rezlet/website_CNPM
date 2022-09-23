@@ -1,0 +1,45 @@
+.user {
+    &__container {
+        padding: 40px;
+        &__table {
+            width: 100%;
+            & thead {
+                & tr {
+                    & th {
+                        text-align: center;
+                    }
+                }
+            }
+            & tbody {
+                & tr {
+                    & td {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    &__overlay {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 900;
+        background: rgba(33, 37, 41, 0.6);
+
+    }
+
+    &__logout {
+        width: 500px;
+        height: 200px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        background-color: #fff;
+       
+    }
+}

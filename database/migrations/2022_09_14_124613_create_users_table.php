@@ -14,18 +14,25 @@ class CreateUsersTable extends Migration
     public function up()
     {
 
-        
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->foreignId("role_id")->constrained("roles");
-            $table->string("username", 30)->unique();
-            $table->string("password", 15);
-            $table->string("email", 30)->unique();
-            $table->date("delete_at")->nullable();
-                  $table->timestamp("create_at")->useCurrent();
-            $table->timestamp("update_at")->useCurrent();
+            $table->string('name');
+            $table->string('password');
+            $table->string('email')->unique();
+            $table->date("deleted_at")->nullable();
+            $table->rememberToken();
+            $table->timestamp("created_at")->useCurrent();
+            $table->timestamp("updated_at")->useCurrent()->nullable();
+            $table->timestamp('email_verified_at')->nullable();
         });
     }
+
+
+
+
+
 
     /**
      * Reverse the migrations.
