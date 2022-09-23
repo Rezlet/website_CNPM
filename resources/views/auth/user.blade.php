@@ -6,6 +6,21 @@
 @section('content')
     <div class="user">
         <div class="user__container container">
+            <span class="text-danger">
+                @error('numberphone')
+                    {{ $message }}
+                @enderror
+
+                @error('email')
+                    {{ $message }}
+                @enderror
+            </span>
+
+            <span class="text-success">
+                @if (Session::has('success'))
+                    {{ Session::get('success') }}
+                @endif
+            </span>
             <table class="user__container__table">
                 <thead>
                     <th>Họ và tên</th>
@@ -18,21 +33,83 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->roles->name }}</td>
-                        <td><a href="" class="btn btn-primary">Sửa</a>
-                            <a href="{{route("auth.logout")}}" class="btn btn-danger">Đăng xuất</a>
+                        <td><a class="user__container__table__change btn btn-primary">Sửa</a>
+                            <a class="user__container__table__logout btn btn-danger">Đăng xuất</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        {{-- <div class="user__overlay"></div>
-        <div class="user__logout popup">
-            <div class="user__logout__title">Bạn có muốn thoát</div>
-            <div class="user__logout__content">Bạn sẽ đăng xuất và trở lại trang đăng nhập</div>
+        <div class="user__overlay"></div>
+        <div class="user__logout">
+            <h3 class="user__logout__title">Bạn có muốn thoát ?</h3>
+            <h4 class="user__logout__content">Bạn sẽ đăng xuất và trở lại trang đăng nhập</h4>
             <div class="user__logout__confirm">
-                <div class="user__logout__confirm__item"></div>
+                <a href="{{ route('auth.logout') }}" class="user__logout__confirm__item btn btn-danger">OK</a>
+                <a class="user__logout__confirm__item user-close-js  btn btn-primary">Hủy</a>
             </div>
-        </div> --}}
+        </div>
+
+        <div class="user__change">
+            <h3 class="user__change__title">Bạn có muốn Thay đổi thông tin</h3>
+            <form class="user__change__content" method="POST" action="{{ route('auth.change') }}">
+                @csrf
+                @method('PUT')
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="email-label">Email</span>
+                    </div>
+                    <input type="text" class="form-control disable" id="email" name="email" placeholder="Email..."
+                        value="{{ $user->email }}" aria-label="Email..." aria-describedby="email-label">
+
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="name-label">Họ và tên</span>
+                    </div>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Họ và tên..."
+                        value="{{ $user->name }}" aria-label="Họ và tên..." aria-describedby="name-label">
+
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="name-label">Số điện thoại</span>
+                    </div>
+                    <input type="text" class="form-control" id="numberphone" name="numberphone"
+                        placeholder="Họ và tên..." value="{{ $user->numberphone }}" aria-label="Số điện thoại..."
+                        aria-describedby="name-label">
+
+                </div>
+                <div style="display: flex;" class="input-group mb-3">
+                    <label for="role" class="user__input__content__list input-group-text">
+                        Vai trò
+                    </label>
+
+                    <select style="flex: 1; padding: 0px 20px;" class="user__input__content__select disable"
+                        value="{{ $user->roles->name }}" name="role" id="role">
+                        @foreach ($roles as $role)
+                            @if ($user->roles->name === $role->name)
+                                <option class="user__input__content__option" selected value="{{ $role->name }}">
+                                    {{ $role->name }}
+                                </option>
+                            @else
+                                <option class="user__input__content__option" value="{{ $role->name }}">
+                                    {{ $role->name }}
+                                </option>
+                            @endif
+                        @endforeach
+                    </select>
+
+                </div>
+
+                <div class="user__change__confirm">
+                    <button type="submit"class="user__change__confirm__item btn btn-primary">Sửa</button>
+                    <div class="user__change__confirm__item user-close-change-js  btn btn-primary">Hủy</div>
+                </div>
+
+            </form>
+        </div>
     </div>
 @endsection
 

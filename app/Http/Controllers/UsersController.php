@@ -48,7 +48,7 @@ class UsersController extends Controller
         ];
         $request->validate($rules, $messages);
         $dataInsert = [
-            "fullname" => $request->fullname,
+            "fullname" => $request->fullname,   
             "email" => $request->email,
             "create_at" => date("Y-m-d H:i:s")
         ];

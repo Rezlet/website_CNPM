@@ -31,6 +31,7 @@ Route::prefix("auth")->name("auth.")->group(function() {
     Route::get("/admin", [CustomAuthController::class, "adminManage"])->name("admin-manage");
     Route::get("/manager", [CustomAuthController::class, "managerManage"])->name("manager-manage");
     Route::get("/logout", [CustomAuthController::class, "logout"])->name("logout");
+    Route::put("/change", [CustomAuthController::class, "change"])->name("change");
 
 });
 

@@ -23,19 +23,24 @@ class baseDB extends Model
         $keys = [];
         $values = [];
         $dataInsert = "";
+        $countValues = "";
         foreach ($data as $key => $value) {
             array_push($keys, $key);
             array_push($values, $value);
             if ($key === array_key_first($data)) {
                 $dataInsert = $dataInsert . "(" . $key . ",";
+                $countValues = $countValues . "(" . "?,";
             } else if ($key === array_key_last($data)) {
                 $dataInsert = $dataInsert . $key . ")";
+                $countValues = $countValues . "?" . ")";
             } else {
                 $dataInsert = $dataInsert . $key . ",";
+                $countValues = $countValues . "?,";
             }
         }
 
-        return DB::insert("INSERT INTO $tableName " . $dataInsert . " values (?,?,?)", $values);
+
+        return DB::insert("INSERT INTO $tableName " . $dataInsert . " values " . $countValues, $values);
     }
 
     public function getDataDetail($tableName, $id)
@@ -60,7 +65,6 @@ class baseDB extends Model
         }
         array_push($values, $id);
 
-        dd("UPDATE " . $tableName . '  SET ' . $dataInsert . ' WHERE id = ? ', $values);
         return DB::update("UPDATE " . $tableName . '  SET ' . $dataInsert . ' WHERE id = ? ', $values);
     }
 
@@ -68,5 +72,4 @@ class baseDB extends Model
     {
         return DB::delete("DELETE FROM $tableName WHERE id=?", [$id]);
     }
-
 }

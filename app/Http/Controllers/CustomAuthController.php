@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\baseDB;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\Users;
 use Illuminate\Contracts\Session\Session as SessionSession;
@@ -11,6 +13,11 @@ use Session;
 
 class CustomAuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->base = new baseDB;
+    }
+
     public function login()
     {
         return view("auth.login");
@@ -26,6 +33,7 @@ class CustomAuthController extends Controller
         $rules = [
             "name" => 'required',
             "email" => 'required|email|unique:users',
+            "numberphone" => 'required|numeric|digits:10',
             "password" => 'required|min:6|max:12',
             "retype-password" => "required_with:password|same:password|min:6"
         ];
@@ -34,6 +42,7 @@ class CustomAuthController extends Controller
         $user = new Users();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->numberphone = $request->numberphone;
         $user->password = Hash::make($request->password);
         $user->role_id = "1";
         $res = $user->save();
@@ -69,33 +78,59 @@ class CustomAuthController extends Controller
     {
         return "dashboard";
     }
-    
 
-    public function userProfile() {
 
-        if(session()->has("loginId")) {
+    public function userProfile()
+    {
+
+        if (session()->has("loginId")) {
+            $role = Role::all();
             $user = User::where("id", "=", session()->get("loginId"))->first();
-            return view("auth.user", compact('user'));
+            return view("auth.user", [
+                "user" => $user,
+                "roles" => $role
+            ]);
         }
 
         return view("auth.user");
-
     }
 
-    public function adminManage() {
+    public function adminManage()
+    {
         return view("auth.manage");
     }
 
-    public function managerManage() {
+    public function managerManage()
+    {
         return view("auth.manage");
     }
 
-    public function logout() {
-        if(session()->has("loginId")) {
+    public function logout()
+    {
+        if (session()->has("loginId")) {
             session()->pull("loginId");
             return redirect("login");
         } else {
             return redirect("/");
         }
+    }
+
+    public function change(Request $request)
+    {
+        $rules = [
+            "name" => "required",
+            "numberphone" => "required|numeric|digits:10",
+        ];
+
+        $data = [
+            "name" => $request->name,
+            "numberphone" => $request->numberphone,
+        ];
+
+        $request->validate($rules);
+        $this->base->updateData("users", $data, session()->get("loginId"));
+        
+
+        return back()->with("success", "Thay đổi dữ liệu thành công");
     }
 }

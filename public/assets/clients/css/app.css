@@ -11585,3 +11585,8 @@ a {
 p {
   margin: 0;
 }
+
+.disable {
+  pointer-events: none;
+  background-color: #e9ecef !important;
+}

@@ -36,6 +36,16 @@
                 </span>
             </div>
             <div class="register__form__container">
+                <label for="numberphone" class="register__form__label"><i class="fa-solid fa-phone"></i>Số điện thoại </label>
+                <input type="number" value="{{ old("numberphone") }}" id="numberphone" name="numberphone" placeholder="numberphone..."
+                    class="register__form__input">
+                <span class="text-danger">
+                    @error('numberphone')
+                        {{ $message }}
+                    @enderror
+                </span>
+            </div>
+            <div class="register__form__container">
                 <label for="password" class="register__form__label"> <i class="fa-solid fa-lock"></i>Mật khẩu</label>
                 <input type="password" id="password" name="password" placeholder="Mật khẩu..."
                     class="register__form__input">

@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->foreignId("role_id")->constrained("roles");
             $table->string('name');
             $table->string('password');
+            $table->string('numberphone')->default("");
             $table->string('email')->unique();
             $table->date("deleted_at")->nullable();
             $table->rememberToken();
