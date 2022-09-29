@@ -38,8 +38,6 @@ class baseDB extends Model
                 $countValues = $countValues . "?,";
             }
         }
-
-
         return DB::insert("INSERT INTO $tableName " . $dataInsert . " values " . $countValues, $values);
     }
 

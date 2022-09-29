@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="register container">
-        <h1 style="text-align: center;">Đăng nhập</h1>
+        <h1 style="text-align: center;">Đăng Kí</h1>
         <form action="{{ route('login.register-user') }}" method="POST" class="register__form">
             @method('post')
             @if (Session::has("success"))

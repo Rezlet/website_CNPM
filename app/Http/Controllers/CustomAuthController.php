@@ -62,7 +62,7 @@ class CustomAuthController extends Controller
         $request->validate($rules);
 
         $user = User::where('email', '=', $request->email)->first();
-        if ($user) {
+        if ($user || $user->deleted_at == null) {
             if (Hash::check($request->password, $user->password)) {
                 $request->session()->put("loginId", $user->id);
                 return redirect("/")->with('success', "Đăng nhập thành công");
@@ -97,11 +97,30 @@ class CustomAuthController extends Controller
 
     public function adminManage()
     {
+        if (session()->has("loginId")) {
+            $role = Role::all();
+            $user = User::where("id", "=", session()->get("loginId"))->first();
+            return view("auth.user", [
+                "user" => $user,
+                "roles" => $role
+            ]);
+        }
         return view("auth.manage");
     }
 
     public function managerManage()
     {
+        if (session()->has("loginId")) {
+            $role = Role::all();
+            $users = User::all();
+            // $user = User::where("id", "=", session()->get("loginId"))->first();
+
+            return view("auth.manage", [
+                // "user-private" => $user,
+                "roles" => $role,
+                "users" => $users
+            ]);
+        }
         return view("auth.manage");
     }
 
@@ -118,19 +137,30 @@ class CustomAuthController extends Controller
     public function change(Request $request)
     {
         $rules = [
+            "id" => "required",
             "name" => "required",
             "numberphone" => "required|numeric|digits:10",
         ];
 
         $data = [
+            "id" => $request->id,
             "name" => $request->name,
             "numberphone" => $request->numberphone,
         ];
 
         $request->validate($rules);
-        $this->base->updateData("users", $data, session()->get("loginId"));
-        
+        $this->base->updateData("users", $data, $request->id);
+
 
         return back()->with("success", "Thay đổi dữ liệu thành công");
+    }
+
+    public function delete(Request $request)
+    {
+        $data = [
+            "deleted_at" => date("Y-m-d"),
+        ];
+        $this->base->updateData("users", $data, $request->id);
+        return back()->with("success", "Xóa người dùng thành công");
     }
 }

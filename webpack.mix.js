@@ -26,3 +26,11 @@ mix.sass('resources/css/auth/register.scss', 'public/assets/clients/css/')
 mix.js('resources/js/auth/register.js', 'public/assets/clients/js/')
 mix.sass('resources/css/auth/user.scss', 'public/assets/clients/css/')
 mix.js('resources/js/auth/user.js', 'public/assets/clients/js/')
+
+
+
+// component
+mix.sass('resources/css/auth/manage.scss', 'public/assets/clients/css/')
+mix.js('resources/js/auth/manage.js', 'public/assets/clients/js/')
+mix.sass('resources/css/components/banner.scss', 'public/assets/clients/css/')
+mix.js('resources/js/components/banner.js', 'public/assets/clients/js/')

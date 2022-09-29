@@ -4,9 +4,13 @@
     "/assets/clients/js/login.js": "/assets/clients/js/login.js",
     "/assets/clients/js/register.js": "/assets/clients/js/register.js",
     "/assets/clients/js/user.js": "/assets/clients/js/user.js",
+    "/assets/clients/js/manage.js": "/assets/clients/js/manage.js",
+    "/assets/clients/js/banner.js": "/assets/clients/js/banner.js",
     "/assets/clients/css/app.css": "/assets/clients/css/app.css",
     "/assets/clients/css/user.css": "/assets/clients/css/user.css",
     "/assets/clients/css/register.css": "/assets/clients/css/register.css",
     "/assets/clients/css/login.css": "/assets/clients/css/login.css",
-    "/assets/clients/css/home.css": "/assets/clients/css/home.css"
+    "/assets/clients/css/home.css": "/assets/clients/css/home.css",
+    "/assets/clients/css/banner.css": "/assets/clients/css/banner.css",
+    "/assets/clients/css/manage.css": "/assets/clients/css/manage.css"
 }

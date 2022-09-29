@@ -20,7 +20,6 @@ class UserSeeder extends Seeder
             "password" => "manager_1",
             "email" => "manager_1@gmail.com",
 
-            "deleted_at" => date("Y-m-d")
         ]);
 
         DB::table("users")->insert([
@@ -29,7 +28,6 @@ class UserSeeder extends Seeder
             "password" => "admin",
             "email" => "admin@gmail.com",
 
-            "deleted_at" => date("Y-m-d")
         ]);
 
         DB::table("users")->insert([
@@ -38,7 +36,6 @@ class UserSeeder extends Seeder
             "password" => "user",
             "email" => "user@gmail.com",
 
-            "deleted_at" => date("Y-m-d")
         ]);
 
         DB::table("users")->insert([
@@ -46,7 +43,6 @@ class UserSeeder extends Seeder
             "name" => "manager_2",
             "password" => "manager_2",
             "email" => "manager_2@gmail.com",
-            "deleted_at" => date("Y-m-d")
         ]);
     }
 }

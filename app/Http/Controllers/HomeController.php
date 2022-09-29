@@ -12,7 +12,7 @@ class HomeController extends Controller
    public function index()
    {
       $categories = Category::all();
-      return view("ui.home");
+      return view("home");
    }
 
    public function getAdd()
