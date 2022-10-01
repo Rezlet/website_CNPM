@@ -15,18 +15,14 @@ class OrderSeeder extends Seeder
     public function run()
     {
         DB::table("orders")->insert([
-            "fullname" => "Tạ Thạch Lỗi",
-            "email" => "loi@gmail.com",
-            "address" => "nha cua tui",
+            "user_id" => 1,
             "note" => null,
             "total" => "2000",
             "order_date" => date("Y-m-d"),
         ]);
 
         DB::table("orders")->insert([
-            "fullname" => "Tạ Thạch Lỗi",
-            "email" => "loi@gmail.com",
-            "address" => "nha cua tui",
+            "user_id" => 1,
             "note" => null,
             "total" => "3000",
         ]);

@@ -11273,6 +11273,7 @@ textarea.form-control-lg {
 }
 .header__function__categories__menu {
   position: absolute;
+  z-index: 100;
   left: 0;
   width: 100%;
   transform: scaleY(0);

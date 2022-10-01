@@ -11,6 +11,10 @@
     @endif
 
     @include('components.banner')
+   <x-featured-product name="Laptop gaming"></x-featured-product>
+   <x-featured-product name="Laptop gaming"></x-featured-product>
+   <x-featured-product name="Laptop gaming"></x-featured-product>
+   <x-featured-product name="Laptop văn phòng"></x-featured-product>
 @endsection
 
 

@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\authsController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Response;
 /*
 |--------------------------------------------------------------------------
@@ -21,22 +21,33 @@ Route::get("/", [HomeController::class, "index"])->name('home');
 Route::prefix("login")->name("login.")->group(function () {
     Route::get("/", [CustomAuthController::class, "login"])->name("index")->middleware('alreadyLoggedIn');
     Route::get("/register", [CustomAuthController::class, "registration"])->name("registration")->middleware('alreadyLoggedIn');
-    Route::post("/register",[CustomAuthController::class, "registerUser"])->name("register-user");
-    Route::post("/user",[CustomAuthController::class, "loginUser"])->name("user");
-    Route::get("/dashboard",[CustomAuthController::class, "dashboard"])->name("dashboard");
+    Route::post("/register", [CustomAuthController::class, "registerUser"])->name("register-user");
+    Route::post("/user", [CustomAuthController::class, "loginUser"])->name("user");
+    Route::get("/dashboard", [CustomAuthController::class, "dashboard"])->name("dashboard");
 });
 
-Route::prefix("auth")->name("auth.")->group(function() {
+Route::prefix("auth")->name("auth.")->group(function () {
     Route::get("/user", [CustomAuthController::class, "userProfile"])->name("user-profile")->middleware('isLoggedIn');
     Route::get("/admin", [CustomAuthController::class, "adminManage"])->name("admin-manage");
     Route::get("/manager", [CustomAuthController::class, "managerManage"])->name("manager-manage");
     Route::get("/logout", [CustomAuthController::class, "logout"])->name("logout");
     Route::put("/change", [CustomAuthController::class, "change"])->name("change");
     Route::get("/delete/{id}", [CustomAuthController::class, "delete"])->name("delete");
-
 });
 
 Route::prefix("search")->name("search.")->group(function () {
     Route::get("/", [HomeController::class, "index"])->name("home");
     Route::get("/{attribute}", [HomeController::class, "index"])->name("attribute");
+});
+
+Route::prefix("categories")->name("categories.")->group(function () {
+    Route::get("/", [HomeController::class, "index"])->name("home");
+    Route::get("/{name}", [HomeController::class, "index"])->name("home");
+});
+
+
+
+Route::prefix("products")->name("products.")->group(function () {
+    Route::get("/", [HomeController::class, "index"])->name("home");
+    Route::get("/{name}", [ProductController::class, "productDetails"])->name("detail");
 });

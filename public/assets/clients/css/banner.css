@@ -1,6 +1,9 @@
-.banner {
+.banner__swiper {
   width: 100vw;
   position: relative;
+}
+.banner__wrapper__slide__image {
+  width: 100%;
 }
 .banner__wrapper__button {
   position: absolute;
@@ -27,4 +30,19 @@
 }
 .banner__wrapper__button.swiper-button-prev {
   left: 50px;
+}
+.banner__bottom {
+  padding: 16px;
+}
+.banner__bottom__container {
+  display: flex;
+  width: 100%;
+  gap: 12px;
+}
+.banner__bottom__container__item {
+  flex: 1;
+  width: 100%;
+}
+.banner__bottom__container__item__image {
+  width: 100%;
 }

@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->foreignId("category_id")->constrained("categories");
             $table->unsignedDouble("price");
             $table->integer("discount")->nullable();
-            $table->string("thumbnail", 120);
+            $table->string("thumbnail", 250);
             $table->longText("description")->nullable();
             $table->timestamp("create_at")->useCurrent();
             $table->timestamp("update_at")->useCurrent();

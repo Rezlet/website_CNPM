@@ -117,7 +117,7 @@
                                     <i class="fa-solid fa-chevron-right "></i>
                                 </div>
                             </div>
-                            <div class="header__function__categories__menu__list__item__submenu">
+                            {{-- <div class="header__function__categories__menu__list__item__submenu">
                                 @foreach ($category->attribute_details->groupBy('property_id')->all() as $property)
                                     <div class="header__function__categories__menu__list__item__submenu__subcontent">
 
@@ -139,7 +139,7 @@
 
                                     </div>
                                 @endforeach
-                            </div>
+                            </div> --}}
                         </div>
                     @endforeach
                 </div>
