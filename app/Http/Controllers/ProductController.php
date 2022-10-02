@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -11,6 +12,7 @@ class ProductController extends Controller
     }
 
     public function productDetails(Request $request) {
-        dd($request->name);
+        $product = Product::where("title", $request->title)->first();
+        dd($product);
     }
 }

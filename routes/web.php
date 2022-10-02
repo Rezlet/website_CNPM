@@ -49,5 +49,5 @@ Route::prefix("categories")->name("categories.")->group(function () {
 
 Route::prefix("products")->name("products.")->group(function () {
     Route::get("/", [HomeController::class, "index"])->name("home");
-    Route::get("/{name}", [ProductController::class, "productDetails"])->name("detail");
+    Route::get("/{title}", [ProductController::class, "productDetails"])->name("detail");
 });

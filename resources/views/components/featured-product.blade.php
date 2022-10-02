@@ -15,12 +15,15 @@
                 {{-- Item --}}
                 @foreach ($products as $product)
                
-                    <a href="{{route("products.detail", ["name" => $product->title])}}" class="featured__container__wrapper__list__item">
+                    <a href="{{route("products.detail", ["title" => $product->title])}}" class="featured__container__wrapper__list__item">
                         <img src="{{ $product->thumbnail }}" alt="">
+                        <div class="featured__container__wrapper__list__item__more">
+                            <h6>Click để xem chi tiết</h6>
+                            
+                        </div>
                         <div class="featured__container__wrapper__list__item__content">
                             <div class="featured__container__wrapper__list__item__title">{{ $product->title }}</div>
-                            <div class="featured__container__wrapper__list__item__price">{{ $product->price }} đ</div>
-
+                            <div class="featured__container__wrapper__list__item__price">{{  number_format($product->price, 0, ',', ',') }} <h6>đ</h6></div>
                         </div>
                     </a>
                 @endforeach

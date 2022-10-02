@@ -72,7 +72,7 @@ class ProductSeeder extends Seeder
             "title" => "product_7",
             "category_id" => 1,
             "thumbnail" => "https://product.hstatic.net/1000026716/product/2uvn-fix_26d0dc18e50744dbb15750de4b15a9c8_large.png",
-            "price" => "800000",
+            "price" => "8000000",
             "discount" => "10",
             "description" => "this is description"
         ]);
