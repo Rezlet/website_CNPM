@@ -6,13 +6,22 @@
 @endsection
 
 @section('content')
-    @if (Session::has('loginId'))
-        <h1>{{ Session::get('loginId') }}</h1>
+{{-- {{Session()->pull("loginId")}} --}}
+
+@if(Session()->has("success"))
+{{Session()->pull("listProductId")}}
+    {{-- {{Session()->get("success")}} --}}
+@endif
+@if (Session()->has("listProductId"))
+    @foreach (Session()->get("listProductId") as $item)
+        <h1>{{$item}}</h1>
+    @endforeach
     @endif
 
     @include('components.banner')
-   <x-featured-product name="Laptop gaming"></x-featured-product>
-   <x-featured-product name="Laptop văn phòng"></x-featured-product>
+   @foreach ($categories as $category)
+   <x-featured-product name="{{$category->name}}"></x-featured-product>
+   @endforeach
 @endsection
 
 

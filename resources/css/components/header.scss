@@ -16,17 +16,14 @@
         padding-bottom: 12px;
         align-items: center;
 
-           
-
-            &__href {
-                display: none;
-                align-items: center;
-                @media screen and (max-width: 768px) {
-                    display: flex;
-                    width: 100%;
-    
-                }
+        &__href {
+            display: none;
+            align-items: center;
+            @media screen and (max-width: 768px) {
+                display: flex;
+                width: 100%;
             }
+        }
         &__logo {
             width: calc(100vw * 170 / 1920);
 
@@ -47,7 +44,6 @@
                 }
 
                 &__icon {
-
                 }
             }
         }
@@ -114,6 +110,22 @@
                     font-size: 12px;
                     font-weight: bold;
                     transition: all 0.25s;
+                    position: relative;
+
+                    &__count {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: absolute;
+                        top: -8px;
+                        width: 18px;
+                        height: 18px;
+                        left: -8px;
+                        background-color: $primary;
+                        font-size: 8px;
+                        border-radius: 50%;
+                        color: #fff;
+                    }
                     @media screen and (max-width: 768px) {
                         display: none;
                     }

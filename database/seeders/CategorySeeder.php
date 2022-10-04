@@ -23,7 +23,18 @@ class CategorySeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
+           
+            "name" => "Tai nghe"
+        ]);
+
+        DB::table('categories')->insert([
+           
             "name" => "Bàn phím"
+        ]);
+
+        DB::table('categories')->insert([
+           
+            "name" => "Chuột"
         ]);
     }
 }

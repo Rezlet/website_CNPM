@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('numberphone')->default("");
             $table->string('email')->unique();
+            $table->string('address');
             $table->date("deleted_at")->nullable()->default(null);
             $table->rememberToken();
             $table->timestamp("created_at")->useCurrent();

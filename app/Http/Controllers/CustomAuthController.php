@@ -34,7 +34,8 @@ class CustomAuthController extends Controller
             "name" => 'required',
             "email" => 'required|email|unique:users',
             "numberphone" => 'required|numeric|digits:10',
-            "password" => 'required|min:6|max:12',
+            "address" => 'required',
+            "password" => 'required|min:6|max:50',
             "retype-password" => "required_with:password|same:password|min:6"
         ];
         $request->validate($rules);
@@ -43,6 +44,7 @@ class CustomAuthController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->numberphone = $request->numberphone;
+        $user->address = $request->address;
         $user->password = Hash::make($request->password);
         $user->role_id = "1";
         $res = $user->save();
@@ -57,12 +59,12 @@ class CustomAuthController extends Controller
     {
         $rules = [
             "email" => 'required|email',
-            "password" => 'required|min:6|max:12',
+            "password" => 'required|min:6|max:50',
         ];
         $request->validate($rules);
 
         $user = User::where('email', '=', $request->email)->first();
-        if ($user || $user->deleted_at == null) {
+        if ($user && $user->deleted_at == null) {
             if (Hash::check($request->password, $user->password)) {
                 $request->session()->put("loginId", $user->id);
                 return redirect("/")->with('success', "Đăng nhập thành công");
@@ -126,6 +128,10 @@ class CustomAuthController extends Controller
 
     public function logout()
     {
+        if(session()->has("listProductId")){
+            session()->pull("listProductId");
+        }
+
         if (session()->has("loginId")) {
             session()->pull("loginId");
             return redirect("login");
@@ -137,21 +143,20 @@ class CustomAuthController extends Controller
     public function change(Request $request)
     {
         $rules = [
-            "id" => "required",
             "name" => "required",
+            "address" => "required",
             "numberphone" => "required|numeric|digits:10",
         ];
-
+        // dd($request->address);
         $data = [
-            "id" => $request->id,
             "name" => $request->name,
             "numberphone" => $request->numberphone,
+            "address" => $request->address,
         ];
 
+        // dd($data);
+        $this->base->updateData("users", $data, Session()->get("loginId"));
         $request->validate($rules);
-        $this->base->updateData("users", $data, $request->id);
-
-
         return back()->with("success", "Thay đổi dữ liệu thành công");
     }
 

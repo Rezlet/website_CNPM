@@ -58,3 +58,15 @@ input[type="number"] {
     pointer-events: none;
     background-color: #e9ecef !important;
 }
+
+.money {
+    &::after {
+        content: "đ";
+        font-weight:bolder;
+        text-decoration: underline;
+        margin-left: 3px;
+        font-size: 14px;
+        margin-bottom: 8px;
+ 
+    }
+}

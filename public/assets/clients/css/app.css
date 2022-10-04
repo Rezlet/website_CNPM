@@ -11196,6 +11196,21 @@ textarea.form-control-lg {
   font-size: 12px;
   font-weight: bold;
   transition: all 0.25s;
+  position: relative;
+}
+.header__container__feature__list__item__count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -8px;
+  width: 18px;
+  height: 18px;
+  left: -8px;
+  background-color: #ea1c04;
+  font-size: 8px;
+  border-radius: 50%;
+  color: #fff;
 }
 @media screen and (max-width: 768px) {
   .header__container__feature__list__item {
@@ -11699,6 +11714,7 @@ textarea.form-control-lg {
 }
 
 .footer {
+  margin-top: 20px;
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: #f1f1f1;
@@ -11776,4 +11792,13 @@ input[type=number] {
 .disable {
   pointer-events: none;
   background-color: #e9ecef !important;
+}
+
+.money::after {
+  content: "đ";
+  font-weight: bolder;
+  text-decoration: underline;
+  margin-left: 3px;
+  font-size: 14px;
+  margin-bottom: 8px;
 }

@@ -26,7 +26,6 @@ class OrderDetailSeeder extends Seeder
             "product_id" => 1,
             "order_id" => 2,
             "amount" => 2,
-
             "price" => 300,
 
         ]);
@@ -36,7 +35,6 @@ class OrderDetailSeeder extends Seeder
             "order_id" => 1,
             "amount" => 1,
             "price" => 5000,
-
         ]);
     }
 }

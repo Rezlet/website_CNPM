@@ -11,8 +11,10 @@ class HomeController extends Controller
 {
    public function index()
    {
-      // $categories = Category::all();
-      return view("home");
+      $categories = Category::limit(5)->get();
+      return view("home", [
+         "categories" => $categories
+      ]);
    }
 
    public function getAdd()
@@ -42,7 +44,7 @@ class HomeController extends Controller
       $validator = Validator::make($request->all(), $rules, $messages, $attributes);
       // dd($validator);
       if($validator->fails()) {
-         $validator->errors()->add("msg", "cặc");
+         $validator->errors()->add("msg", "Nhập sai rồi nha pé ơi");
          return back()->withErrors($validator);
       } else {
          return redirect()->route("home")->with('msg', "thanh công rồi nha");

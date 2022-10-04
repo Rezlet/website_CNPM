@@ -14,6 +14,9 @@
                 @error('email')
                     {{ $message }}
                 @enderror
+                @error('address')
+                {{ $message }}
+            @enderror
             </span>
 
             <span class="text-success">
@@ -78,6 +81,16 @@
                     </div>
                     <input type="text" class="form-control" id="numberphone" name="numberphone"
                         placeholder="Họ và tên..." value="{{ $user->numberphone }}" aria-label="Số điện thoại..."
+                        aria-describedby="name-label">
+
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="name-label">Địa chỉ</span>
+                    </div>
+                    <input type="text" class="form-control" id="address" name="address"
+                        placeholder="Họ và tên..." value="{{ $user->address }}" aria-label="Địa chỉ..."
                         aria-describedby="name-label">
 
                 </div>

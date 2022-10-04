@@ -3,7 +3,7 @@
 <header class="header">
     <div class="header__container container">
         <div class="header__container__logo">
-            <a href="{{route("home")}}">
+            <a href="{{ route('home') }}">
 
                 <img src="//theme.hstatic.net/1000026716/1000440777/14/logo.svg?v=28492" alt=""
                     class="header__container__logo__image header__desktop">
@@ -40,7 +40,7 @@
                     </a>
                     @if ($user->roles->name == 'Admin')
                         <a href="{{ route('auth.admin-manage') }}" class="header__container__feature__list__item">
-                           <i class="fa-solid fa-list-check"></i>
+                            <i class="fa-solid fa-list-check"></i>
                             <p>
                                 Quản lí
                             </p>
@@ -49,7 +49,7 @@
 
                     @if ($user->roles->name == 'Manager')
                         <a href="{{ route('auth.manager-manage') }}" class="header__container__feature__list__item">
-                           <i class="fa-solid fa-list-check"></i>
+                            <i class="fa-solid fa-list-check"></i>
                             <p>
                                 Quản lí
                             </p>
@@ -80,9 +80,13 @@
 
                     </p>
                 </a>
-                <a href="/"
+                <a href="{{route("cart.index")}}"
                     class="header__container__feature__list__item header__container__feature__list__item-mobile">
                     <i class="fa-solid fa-cart-shopping fa-flip-horizontal"></i>
+                    @if (Session()->has('listProductId'))
+                        <span
+                            class="header__container__feature__list__item__count">{{ count(Session()->get('listProductId')) }}</span>
+                    @endif
                     <p>
                         Giỏ hàng
 
@@ -106,7 +110,8 @@
             <div class="header__function__categories__menu">
                 <div class="header__function__categories__menu__list">
                     @foreach ($categories as $category)
-                        <div class="header__function__categories__menu__list__item">
+                        <a href="{{ route('search.category', ['category' => $category->name]) }}"
+                            class="header__function__categories__menu__list__item">
                             <div class="header__function__categories__menu__list__item__content">
                                 <i class="fa-solid fa-laptop"></i>
                                 <p class="header__function__categories__menu__list__item__content__text">
@@ -140,7 +145,7 @@
                                     </div>
                                 @endforeach
                             </div> --}}
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>

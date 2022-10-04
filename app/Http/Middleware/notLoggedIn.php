@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AlreadyLoggedIn
+class notLoggedIn
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,9 @@ class AlreadyLoggedIn
      */
     public function handle(Request $request, Closure $next)
     {
-        if (session()->has("loginId") && (url('login') == $request->url() || url('login/register') == $request->url())) {
-            return back();
+        if(!session()->has("loginId")) {
+            return redirect()->route("login.index")->with("fail", "Xin vui lòng,Hãy đăng kí tài khoản trước");
         }
-
-        
         return $next($request);
     }
 }

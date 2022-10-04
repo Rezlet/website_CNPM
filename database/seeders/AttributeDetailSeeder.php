@@ -17,9 +17,9 @@ class AttributeDetailSeeder extends Seeder
         DB::table('attribute_details')->insert([
             "category_id" => 1,
             "attribute_id" => 1,
-            "property_id" => 1
+            "property_id" => 1 
         ]);
-
+        
         DB::table('attribute_details')->insert([
             "category_id" => 2,
             "attribute_id" => 1,

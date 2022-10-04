@@ -37,10 +37,20 @@
             </div>
             <div class="register__form__container">
                 <label for="numberphone" class="register__form__label"><i class="fa-solid fa-phone"></i>Số điện thoại </label>
-                <input type="number" value="{{ old("numberphone") }}" id="numberphone" name="numberphone" placeholder="numberphone..."
+                <input type="number" value="{{ old("numberphone") }}" id="numberphone" name="numberphone" placeholder="Số điện thoại..."
                     class="register__form__input">
                 <span class="text-danger">
                     @error('numberphone')
+                        {{ $message }}
+                    @enderror
+                </span>
+            </div>
+            <div class="register__form__container">
+                <label for="address" class="register__form__label"><i class="fa-solid fa-phone"></i>Địa chỉ</label>
+                <input type="text" value="{{ old("address") }}" id="address" name="address" placeholder="Địa chỉ..."
+                    class="register__form__input">
+                <span class="text-danger">
+                    @error('address')
                         {{ $message }}
                     @enderror
                 </span>

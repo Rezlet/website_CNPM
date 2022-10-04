@@ -5,7 +5,7 @@
                 {{$title}} bán chạy
             </h2>
 
-            <a href="{{route("categories.home", ["name" => $title])}}" class="featured__container__header__more">
+            <a href="{{route("search.category", ["category" => $title])}}" class="featured__container__header__more">
                 xem thêm
             </a>
         </div>
@@ -23,7 +23,7 @@
                         </div>
                         <div class="featured__container__wrapper__list__item__content">
                             <div class="featured__container__wrapper__list__item__title">{{ $product->title }}</div>
-                            <div class="featured__container__wrapper__list__item__price">{{  number_format($product->price, 0, ',', ',') }} <h6>đ</h6></div>
+                            <div class="featured__container__wrapper__list__item__price">{{  number_format($product->price, 0, ',', ',') }} </div>
                         </div>
                     </a>
                 @endforeach
