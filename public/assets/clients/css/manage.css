@@ -1,6 +1,11 @@
 .manage__container {
   padding: 40px;
 }
+.manage__container__function {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+}
 .manage__container__table {
   width: 100%;
   border: solid 1px #000;

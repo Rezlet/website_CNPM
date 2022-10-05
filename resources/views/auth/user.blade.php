@@ -15,8 +15,8 @@
                     {{ $message }}
                 @enderror
                 @error('address')
-                {{ $message }}
-            @enderror
+                    {{ $message }}
+                @enderror
             </span>
 
             <span class="text-success">
@@ -28,14 +28,12 @@
                 <thead>
                     <th>Họ và tên</th>
                     <th>Email</th>
-                    <th>Vai trò</th>
                     <th>Chức năng</th>
                 </thead>
                 <tbody>
                     <tr>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->roles->name }}</td>
                         <td><a class="user__container__table__change btn btn-primary">Sửa</a>
                             <a class="user__container__table__logout btn btn-danger">Đăng xuất</a>
                         </td>
@@ -70,52 +68,31 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="name-label">Họ và tên</span>
                     </div>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Họ và tên..."
+                    <input type="text" class="form-control disable" id="name" name="name" placeholder="Họ và tên..."
                         value="{{ $user->name }}" aria-label="Họ và tên..." aria-describedby="name-label">
 
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="name-label">Số điện thoại</span>
+                @if (!Session::has('admin'))
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="name-label">Số điện thoại</span>
+                        </div>
+                        <input type="text" class="form-control" id="numberphone" name="numberphone"
+                            placeholder="Họ và tên..." value="{{ $user->numberphone }}" aria-label="Số điện thoại..."
+                            aria-describedby="name-label">
+
                     </div>
-                    <input type="text" class="form-control" id="numberphone" name="numberphone"
-                        placeholder="Họ và tên..." value="{{ $user->numberphone }}" aria-label="Số điện thoại..."
-                        aria-describedby="name-label">
 
-                </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="name-label">Địa chỉ</span>
+                        </div>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Họ và tên..."
+                            value="{{ $user->address }}" aria-label="Địa chỉ..." aria-describedby="name-label">
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="name-label">Địa chỉ</span>
                     </div>
-                    <input type="text" class="form-control" id="address" name="address"
-                        placeholder="Họ và tên..." value="{{ $user->address }}" aria-label="Địa chỉ..."
-                        aria-describedby="name-label">
-
-                </div>
-                <div style="display: flex;" class="input-group mb-3">
-                    <label for="role" class="user__input__content__list input-group-text">
-                        Vai trò
-                    </label>
-
-                    <select style="flex: 1; padding: 0px 20px;" class="user__input__content__select disable"
-                        value="{{ $user->roles->name }}" name="role" id="role">
-                        @foreach ($roles as $role)
-                            @if ($user->roles->name === $role->name)
-                                <option class="user__input__content__option" selected value="{{ $role->name }}">
-                                    {{ $role->name }}
-                                </option>
-                            @else
-                                <option class="user__input__content__option" value="{{ $role->name }}">
-                                    {{ $role->name }}
-                                </option>
-                            @endif
-                        @endforeach
-                    </select>
-
-                </div>
-
+                @endif
                 <div class="user__change__confirm">
                     <button type="submit"class="user__change__confirm__item btn btn-primary">Sửa</button>
                     <div class="user__change__confirm__item user-close-change-js  btn btn-primary">Hủy</div>

@@ -38,16 +38,8 @@
 
                         </p>
                     </a>
-                    @if ($user->roles->name == 'Admin')
-                        <a href="{{ route('auth.admin-manage') }}" class="header__container__feature__list__item">
-                            <i class="fa-solid fa-list-check"></i>
-                            <p>
-                                Quản lí
-                            </p>
-                        </a>
-                    @endif
 
-                    @if ($user->roles->name == 'Manager')
+                    @if (Session()->has('admin'))
                         <a href="{{ route('auth.manager-manage') }}" class="header__container__feature__list__item">
                             <i class="fa-solid fa-list-check"></i>
                             <p>
@@ -80,7 +72,7 @@
 
                     </p>
                 </a>
-                <a href="{{route("cart.index")}}"
+                <a href="{{ route('cart.index') }}"
                     class="header__container__feature__list__item header__container__feature__list__item-mobile">
                     <i class="fa-solid fa-cart-shopping fa-flip-horizontal"></i>
                     @if (Session()->has('listProductId'))

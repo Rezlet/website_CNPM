@@ -36,7 +36,11 @@ mix.sass('resources/css/components/banner.scss', 'public/assets/clients/css/')
 mix.js('resources/js/components/banner.js', 'public/assets/clients/js/')
 mix.sass('resources/css/components/featured-product.scss', 'public/assets/clients/css/')
 mix.js('resources/js/components/featured-product.js', 'public/assets/clients/js/')
+
+mix.sass('resources/css/components/success.scss', 'public/assets/clients/css/')
+mix.js('resources/js/components/success.js', 'public/assets/clients/js/')
 mix.sass('resources/css/product/detail.scss', 'public/assets/clients/css/')
 mix.js('resources/js/product/detail.js', 'public/assets/clients/js/')
 mix.sass('resources/css/product/cart.scss', 'public/assets/clients/css/')
 mix.js('resources/js/product/cart.js', 'public/assets/clients/js/')
+

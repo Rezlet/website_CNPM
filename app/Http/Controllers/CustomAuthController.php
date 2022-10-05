@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Admins;
+use App\Models\Admin;
 use App\Models\baseDB;
 use App\Models\User;
 use App\Models\Role;
@@ -46,7 +48,6 @@ class CustomAuthController extends Controller
         $user->numberphone = $request->numberphone;
         $user->address = $request->address;
         $user->password = Hash::make($request->password);
-        $user->role_id = "1";
         $res = $user->save();
         if ($res) {
             return redirect("login")->with("success", "Đăng kí thành công!");
@@ -62,11 +63,20 @@ class CustomAuthController extends Controller
             "password" => 'required|min:6|max:50',
         ];
         $request->validate($rules);
-
         $user = User::where('email', '=', $request->email)->first();
+        $isAdmin = false;
+
+        if ($user == null) {
+            $user = Admin::where("email", $request->email)->first();
+            $isAdmin = true;
+        }
+
         if ($user && $user->deleted_at == null) {
             if (Hash::check($request->password, $user->password)) {
                 $request->session()->put("loginId", $user->id);
+                if ($isAdmin) {
+                    $request->session()->put("admin", true);
+                }
                 return redirect("/")->with('success', "Đăng nhập thành công");
             } else {
                 return back()->with('fail', 'Mật khẩu không đúng');
@@ -86,40 +96,24 @@ class CustomAuthController extends Controller
     {
 
         if (session()->has("loginId")) {
-            $role = Role::all();
-            $user = User::where("id", "=", session()->get("loginId"))->first();
+            if (session()->has("admin")) {
+                $user = Admin::where("id", "=", session()->get("loginId"))->first();
+            } else {
+                $user = User::where("id", "=", session()->get("loginId"))->first();
+            }
             return view("auth.user", [
                 "user" => $user,
-                "roles" => $role
             ]);
         }
 
         return view("auth.user");
     }
 
-    public function adminManage()
-    {
-        if (session()->has("loginId")) {
-            $role = Role::all();
-            $user = User::where("id", "=", session()->get("loginId"))->first();
-            return view("auth.user", [
-                "user" => $user,
-                "roles" => $role
-            ]);
-        }
-        return view("auth.manage");
-    }
-
     public function managerManage()
     {
         if (session()->has("loginId")) {
-            $role = Role::all();
             $users = User::all();
-            // $user = User::where("id", "=", session()->get("loginId"))->first();
-
             return view("auth.manage", [
-                // "user-private" => $user,
-                "roles" => $role,
                 "users" => $users
             ]);
         }
@@ -128,12 +122,15 @@ class CustomAuthController extends Controller
 
     public function logout()
     {
-        if(session()->has("listProductId")){
+        if (session()->has("listProductId")) {
             session()->pull("listProductId");
         }
 
         if (session()->has("loginId")) {
             session()->pull("loginId");
+            if (session()->has("admin")) {
+                session()->pull("admin");
+            }
             return redirect("login");
         } else {
             return redirect("/");

@@ -7,6 +7,7 @@
     "/assets/clients/js/manage.js": "/assets/clients/js/manage.js",
     "/assets/clients/js/banner.js": "/assets/clients/js/banner.js",
     "/assets/clients/js/featured-product.js": "/assets/clients/js/featured-product.js",
+    "/assets/clients/js/success.js": "/assets/clients/js/success.js",
     "/assets/clients/js/detail.js": "/assets/clients/js/detail.js",
     "/assets/clients/js/cart.js": "/assets/clients/js/cart.js",
     "/assets/clients/css/app.css": "/assets/clients/css/app.css",
@@ -16,6 +17,7 @@
     "/assets/clients/css/home.css": "/assets/clients/css/home.css",
     "/assets/clients/css/cart.css": "/assets/clients/css/cart.css",
     "/assets/clients/css/detail.css": "/assets/clients/css/detail.css",
+    "/assets/clients/css/success.css": "/assets/clients/css/success.css",
     "/assets/clients/css/featured-product.css": "/assets/clients/css/featured-product.css",
     "/assets/clients/css/banner.css": "/assets/clients/css/banner.css",
     "/assets/clients/css/manage.css": "/assets/clients/css/manage.css"

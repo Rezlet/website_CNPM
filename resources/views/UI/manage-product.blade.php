@@ -31,29 +31,36 @@
 
             <table class="manage__container__table">
                 <thead>
-                    <th>Họ và tên</th>
-                    <th>Email</th>
-                    <th>Số điện thoại</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Thể loại</th>
+                    <th>Giá tiền</th>
+                    <th>Hình ảnh</th>
+                    <th>Giảm giá</th>
+                    <th>Mô tả</th>
                     <th>Chức năng</th>
                 </thead>
                 <tbody>
-                    @foreach ($users as $user)
-                        @if ($user->deleted_at == null)
+                    @foreach ($products as $product)
+                        @if ($product->deleted_at == null)
                             <tr>
-                                <td class="manage__container__table__name">{{ $user->name }}</td>
-                                <td class="manage__container__table__email">{{ $user->email }}</td>
-                                <td class="manage__container__table__numberphone">{{ $user->numberphone }}</td>
+                                <td >{{ $product->title }}</td>
+                                <td >{{ $product->categories->name }}</td>
+                                <td >{{ number_format($product->price, 0, ',', ',')  }}</td>
+                                <td ><img src="{{$product->thumbnail}}" alt=""></td>
+                                <td >{{$product->discount}}</td>
+                                <td >{{ $product->description}}</td>
+
                                 <td><a class="manage__container__table__change btn btn-primary">Sửa</a>
                                     <a class="manage__container__table__logout btn btn-danger">Xóa</a>
                                 </td>
                                 <input type="hidden" class="manage__container__table__id"
-                                    name="user__id__{{ $user->id }}" id="user__id__{{ $user->id }}"
-                                    value="{{ $user->id }}">
+                                    name="user__id__{{ $product->id }}" id="user__id__{{ $product->id }}"
+                                    value="{{ $product->id }}">
                                 <div class="manage__logout">
                                     <h3 class="manage__logout__title">Bạn có muốn xóa người dùng này ?</h3>
                                     <h4 class="manage__logout__content">Người dùng này sẽ biến mất vĩnh viễn</h4>
                                     <div class="manage__logout__confirm">
-                                        <a href="{{ route('auth.delete', ['id' => $user->id]) }}"
+                                        <a href="{{ route('manage.delete-product', ['id' => $product->id]) }}"
                                             class="manage__logout__confirm__item btn btn-danger">Xóa</a>
                                         <a class="manage__logout__confirm__item manage-close-js  btn btn-primary">Hủy</a>
                                     </div>
@@ -63,6 +70,8 @@
                     @endforeach
                 </tbody>
             </table>
+
+            {{ $products->links() }}
         </div>
         <div class="manage__overlay"></div>
         <div class="manage__change">
@@ -96,7 +105,7 @@
                         aria-describedby="name-label">
 
                 </div>
-                <input type="hidden" name="id" id="id" value="{{ $user->id }}">
+                <input type="hidden" name="id" id="id" value="{{ $product->id }}">
                 <div class="manage__change__confirm">
                     <button type="submit"class="manage__change__confirm__item btn btn-primary">Sửa</button>
                     <div class="manage__change__confirm__item manage-close-change-js  btn btn-primary">Hủy</div>

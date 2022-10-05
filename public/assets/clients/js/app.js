@@ -14244,6 +14244,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/components/success.scss":
+/*!***********************************************!*\
+  !*** ./resources/css/components/success.scss ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/product/detail.scss":
 /*!*******************************************!*\
   !*** ./resources/css/product/detail.scss ***!
@@ -44636,6 +44649,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			"assets/clients/css/home": 0,
 /******/ 			"assets/clients/css/cart": 0,
 /******/ 			"assets/clients/css/detail": 0,
+/******/ 			"assets/clients/css/success": 0,
 /******/ 			"assets/clients/css/featured-product": 0,
 /******/ 			"assets/clients/css/banner": 0,
 /******/ 			"assets/clients/css/manage": 0
@@ -44688,17 +44702,18 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/home.scss")))
-/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/auth/login.scss")))
-/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/auth/register.scss")))
-/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/auth/user.scss")))
-/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/auth/manage.scss")))
-/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/components/banner.scss")))
-/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/components/featured-product.scss")))
-/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/product/detail.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/product/cart.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/home.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/auth/login.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/auth/register.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/auth/user.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/auth/manage.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/components/banner.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/components/featured-product.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/components/success.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/product/detail.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["assets/clients/css/app","assets/clients/css/user","assets/clients/css/register","assets/clients/css/login","assets/clients/css/home","assets/clients/css/cart","assets/clients/css/detail","assets/clients/css/success","assets/clients/css/featured-product","assets/clients/css/banner","assets/clients/css/manage"], () => (__webpack_require__("./resources/css/product/cart.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

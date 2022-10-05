@@ -43,7 +43,10 @@ class OrderController extends Controller
             $this->base->addData("order_details", $data);
         }
         session()->pull("listProductId");
-        return redirect()->route("home")->with("success", "Thêm dữ liệu thành công");
+        return redirect()->route("order.success");
+    }
 
+    public function success() {
+        return view("ui.success");
     }
 }
