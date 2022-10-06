@@ -68,6 +68,6 @@ class baseDB extends Model
 
     public function deleteOne($tableName, $id)
     {
-        return DB::delete("DELETE FROM $tableName WHERE id=?", [$id]);
+        return DB::update("UPDATE " . $tableName . '  SET ' . "deleted_at = ?" . ' WHERE id = ? ', [date("Y-m-d"), $id]);
     }
 }

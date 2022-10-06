@@ -42,7 +42,7 @@ Route::prefix("auth")->name("auth.")->group(function () {
 
 Route::prefix("manage")->name("manage.")->group(function () {
     Route::get("/product", [ManageController::class, "product"])->name("product")->middleware("isAdmin");
-    Route::get("/delete-product", [ManageController::class, "product"])->name("delete-product")->middleware("isAdmin");
+    Route::get("/delete-product", [ManageController::class, "deleteProduct"])->name("delete-product")->middleware("isAdmin");
 });
 #endregion
 

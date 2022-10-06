@@ -24,7 +24,7 @@
             </span>
 
             <div class="manage__container__function">
-                <a href="" class="manage__container__function__item btn btn-link">Quản lý sản phẩm</a>
+                <a href="{{route("manage.product")}}" class="manage__container__function__item btn btn-link">Quản lý sản phẩm</a>
                 <a href="" class="manage__container__function__item btn btn-link">Quản lý Loại sản phẩm</a>
                 <a href="" class="manage__container__function__item btn btn-link">Quản lý Khách hàng</a>
             </div>

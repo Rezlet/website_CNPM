@@ -29,7 +29,7 @@ class FeaturedProduct extends Component
     public function render()
     {
         
-        $products =Product::where("category_id",Category::where("name", $this->name)->first()->id)->limit(10)->get();
+        $products =Product::where("category_id",Category::where("name", $this->name)->first()->id)->limit(10)->WhereNull("deleted_at")->get();
         return view('components.featured-product', [
             "products" => $products,
             "title" => $this->title
