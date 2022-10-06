@@ -25,8 +25,10 @@
 
             <div class="manage__container__function">
                 <a href="{{route("manage.product")}}" class="manage__container__function__item btn btn-link">Quản lý sản phẩm</a>
-                <a href="" class="manage__container__function__item btn btn-link">Quản lý Loại sản phẩm</a>
-                <a href="" class="manage__container__function__item btn btn-link">Quản lý Khách hàng</a>
+                <a href="{{route("manage.category")}}" class="manage__container__function__item btn btn-link">Quản lý Loại sản phẩm</a>
+                <a href="{{route("auth.manager-manage")}}" class="manage__container__function__item btn btn-link">Quản lý Khách hàng</a>
+                <a href="{{ route('auth.manager-manage') }}" class="manage__container__function__item btn btn-link">Quản lý
+                    Hóa đơn</a>
             </div>
 
             <table class="manage__container__table">
@@ -34,6 +36,7 @@
                     <th>Họ và tên</th>
                     <th>Email</th>
                     <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
                     <th>Chức năng</th>
                 </thead>
                 <tbody>
@@ -43,6 +46,7 @@
                                 <td class="manage__container__table__name">{{ $user->name }}</td>
                                 <td class="manage__container__table__email">{{ $user->email }}</td>
                                 <td class="manage__container__table__numberphone">{{ $user->numberphone }}</td>
+                                <td class="manage__container__table__address">{{ $user->address }}</td>
                                 <td><a class="manage__container__table__change btn btn-primary">Sửa</a>
                                     <a class="manage__container__table__logout btn btn-danger">Xóa</a>
                                 </td>
@@ -93,6 +97,16 @@
                     </div>
                     <input type="number" class="form-control" id="numberphone" name="numberphone"
                         placeholder="Số điện thoại ..." value="" aria-label="Số điện thoại..."
+                        aria-describedby="name-label">
+
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="name-label">Địa chỉ</span>
+                    </div>
+                    <input type="text" class="form-control" id="address" name="address"
+                        placeholder="Địa chỉ..." value="" aria-label="Địa chỉ..."
                         aria-describedby="name-label">
 
                 </div>

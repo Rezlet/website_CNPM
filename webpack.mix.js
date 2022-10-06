@@ -44,3 +44,7 @@ mix.js('resources/js/product/detail.js', 'public/assets/clients/js/')
 mix.sass('resources/css/product/cart.scss', 'public/assets/clients/css/')
 mix.js('resources/js/product/cart.js', 'public/assets/clients/js/')
 
+mix.js('resources/js/product/manage-category.js', 'public/assets/clients/js/')
+mix.js('resources/js/product/manage-product.js', 'public/assets/clients/js/')
+
+

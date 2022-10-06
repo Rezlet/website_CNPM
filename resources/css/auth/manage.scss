@@ -2,11 +2,31 @@
     &__container {
         padding: 40px;
 
+        &__crud {
+            &__form {
+                width: 500px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 999;
+                background-color: #fff;
+                padding: 40px;
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.5s;
+
+                &.popup {
+                    opacity: 1;
+                    pointer-events: initial;
+                }
+            }
+        }
+
         &__function {
             margin: 20px;
             display: flex;
             justify-content: space-between;
-            
         }
 
         &__table {

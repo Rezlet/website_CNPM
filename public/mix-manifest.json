@@ -10,6 +10,8 @@
     "/assets/clients/js/success.js": "/assets/clients/js/success.js",
     "/assets/clients/js/detail.js": "/assets/clients/js/detail.js",
     "/assets/clients/js/cart.js": "/assets/clients/js/cart.js",
+    "/assets/clients/js/manage-category.js": "/assets/clients/js/manage-category.js",
+    "/assets/clients/js/manage-product.js": "/assets/clients/js/manage-product.js",
     "/assets/clients/css/app.css": "/assets/clients/css/app.css",
     "/assets/clients/css/user.css": "/assets/clients/css/user.css",
     "/assets/clients/css/register.css": "/assets/clients/css/register.css",

@@ -152,8 +152,8 @@ class CustomAuthController extends Controller
         ];
 
         // dd($data);
-        $this->base->updateData("users", $data, Session()->get("loginId"));
         $request->validate($rules);
+        $this->base->updateData("users", $data, Session()->get("loginId"));
         return back()->with("success", "Thay đổi dữ liệu thành công");
     }
 

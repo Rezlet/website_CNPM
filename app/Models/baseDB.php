@@ -24,20 +24,27 @@ class baseDB extends Model
         $values = [];
         $dataInsert = "";
         $countValues = "";
-        foreach ($data as $key => $value) {
-            array_push($keys, $key);
-            array_push($values, $value);
-            if ($key === array_key_first($data)) {
-                $dataInsert = $dataInsert . "(" . $key . ",";
-                $countValues = $countValues . "(" . "?,";
-            } else if ($key === array_key_last($data)) {
-                $dataInsert = $dataInsert . $key . ")";
-                $countValues = $countValues . "?" . ")";
-            } else {
-                $dataInsert = $dataInsert . $key . ",";
-                $countValues = $countValues . "?,";
+        if(count($data) == 1) {
+            $key = array_key_first($data);
+            $dataInsert = "(" . $key . ")";
+            $countValues .= "('" . $data[$key] . "')";
+        } else {
+            foreach ($data as $key => $value) {
+                array_push($keys, $key);
+                array_push($values, $value);
+                if ($key === array_key_first($data)) {
+                    $dataInsert = $dataInsert . "(" . $key . ",";
+                    $countValues = $countValues . "(" . "?,";
+                } else if ($key === array_key_last($data)) {
+                    $dataInsert = $dataInsert . $key . ")";
+                    $countValues = $countValues . "?" . ")";
+                } else {
+                    $dataInsert = $dataInsert . $key . ",";
+                    $countValues = $countValues . "?,";
+                }
             }
         }
+
         return DB::insert("INSERT INTO $tableName " . $dataInsert . " values " . $countValues, $values);
     }
 
@@ -61,6 +68,7 @@ class baseDB extends Model
                 $dataInsert = $dataInsert . $key . "=?, ";
             }
         }
+        
         array_push($values, $id);
 
         return DB::update("UPDATE " . $tableName . '  SET ' . $dataInsert . ' WHERE id = ? ', $values);
@@ -68,6 +76,6 @@ class baseDB extends Model
 
     public function deleteOne($tableName, $id)
     {
-        return DB::update("UPDATE " . $tableName . '  SET ' . "deleted_at = ?" . ' WHERE id = ? ', [date("Y-m-d"), $id]);
+        return DB::delete("DELETE FROM $tableName WHERE id=?", [$id]);
     }
 }
