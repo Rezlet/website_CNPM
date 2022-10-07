@@ -27,46 +27,44 @@
                 <a href="{{route("manage.product")}}" class="manage__container__function__item btn btn-link">Quản lý sản phẩm</a>
                 <a href="{{route("manage.category")}}" class="manage__container__function__item btn btn-link">Quản lý Loại sản phẩm</a>
                 <a href="{{route("auth.manager-manage")}}" class="manage__container__function__item btn btn-link">Quản lý Khách hàng</a>
-                <a href="{{ route('manage.order') }}" class="manage__container__function__item btn btn-link">Quản lý
-                    Hóa đơn</a>
+                   <a href="{{ route('manage.order') }}" class="manage__container__function__item btn btn-link">Quản lý
+                  Hóa đơn</a>
             </div>
 
             <table class="manage__container__table">
                 <thead>
-                    <th>Họ và tên</th>
-                    <th>Email</th>
-                    <th>Số điện thoại</th>
-                    <th>Địa chỉ</th>
-                    <th>Chức năng</th>
+                    <th>Tên Khách hàng</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Tổng đơn hàng</th>
                 </thead>
                 <tbody>
-                    @foreach ($users as $user)
-                        @if ($user->deleted_at == null)
+                    @foreach ($orders as $order)
                             <tr>
-                                <td class="manage__container__table__name">{{ $user->name }}</td>
-                                <td class="manage__container__table__email">{{ $user->email }}</td>
-                                <td class="manage__container__table__numberphone">{{ $user->numberphone }}</td>
-                                <td class="manage__container__table__address">{{ $user->address }}</td>
+                                <td >{{ $order->users->name }}</td>
+                                <td >{{ $order->order_date }}</td>
+                                <td >{{ number_format($order->total, 0, ',', ',')  }}</td>
+
                                 <td><a class="manage__container__table__change btn btn-primary">Sửa</a>
                                     <a class="manage__container__table__logout btn btn-danger">Xóa</a>
                                 </td>
                                 <input type="hidden" class="manage__container__table__id"
-                                    name="user__id__{{ $user->id }}" id="user__id__{{ $user->id }}"
-                                    value="{{ $user->id }}">
+                                    name="user__id__{{ $order->id }}" id="user__id__{{ $order->id }}"
+                                    value="{{ $order->id }}">
                                 <div class="manage__logout">
                                     <h3 class="manage__logout__title">Bạn có muốn xóa người dùng này ?</h3>
                                     <h4 class="manage__logout__content">Người dùng này sẽ biến mất vĩnh viễn</h4>
                                     <div class="manage__logout__confirm">
-                                        <a href="{{ route('auth.delete', ['id' => $user->id]) }}"
+                                        <a href="{{ route('manage.delete-product', ['id' => $order->id]) }}"
                                             class="manage__logout__confirm__item btn btn-danger">Xóa</a>
                                         <a class="manage__logout__confirm__item manage-close-js  btn btn-primary">Hủy</a>
                                     </div>
                                 </div>
                             </tr>
-                        @endif
                     @endforeach
                 </tbody>
             </table>
+
+            {{ $orders->links() }}
         </div>
         <div class="manage__overlay"></div>
         <div class="manage__change">
@@ -100,17 +98,7 @@
                         aria-describedby="name-label">
 
                 </div>
-
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="name-label">Địa chỉ</span>
-                    </div>
-                    <input type="text" class="form-control" id="address" name="address"
-                        placeholder="Địa chỉ..." value="" aria-label="Địa chỉ..."
-                        aria-describedby="name-label">
-
-                </div>
-                <input type="hidden" name="id" id="id" value="{{ $user->id }}">
+                <input type="hidden" name="id" id="id" value="{{ $order->id }}">
                 <div class="manage__change__confirm">
                     <button type="submit"class="manage__change__confirm__item btn btn-primary">Sửa</button>
                     <div class="manage__change__confirm__item manage-close-change-js  btn btn-primary">Hủy</div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\baseDB;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -59,4 +60,11 @@ class ManageController extends Controller
        }
        return back()->with("errors", "Cập nhập thất bại");
     }
+
+    public function order(){
+        $order = Order::paginate(10);
+
+        return view("ui.manage-order", ["orders" => $order]);
+    }
+
 }
