@@ -27,7 +27,7 @@
                 <a href="{{route("manage.product")}}" class="manage__container__function__item btn btn-link">Quản lý sản phẩm</a>
                 <a href="{{route("manage.category")}}" class="manage__container__function__item btn btn-link">Quản lý Loại sản phẩm</a>
                 <a href="{{route("auth.manager-manage")}}" class="manage__container__function__item btn btn-link">Quản lý Khách hàng</a>
-                <a href="{{ route('auth.manager-manage') }}" class="manage__container__function__item btn btn-link">Quản lý
+                <a href="{{ route('manage.order') }}" class="manage__container__function__item btn btn-link">Quản lý
                     Hóa đơn</a>
             </div>
 

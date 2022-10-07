@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\baseDB;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -58,5 +59,11 @@ class ManageController extends Controller
            return back()->with("success", "Cập nhập thành công");
        }
        return back()->with("errors", "Cập nhập thất bại");
+    }
+
+    public function order() {
+        $orders = Order::all();
+        dd($orders[0]->users);
+        return "cac";
     }
 }
