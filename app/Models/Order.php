@@ -15,13 +15,15 @@ class Order extends Model
         "address",
         "total"
     ];
-    
+
     protected $nullable = [
         "note",
     ];
 
-    public function details() {
-        return $this->hasMany(OrderDetail::class);
+    public function users()
+    {
+        return $this->belongsTo(User::class, "user_id", "id");
     }
+
     use HasFactory;
 }

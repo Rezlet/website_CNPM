@@ -46,6 +46,7 @@ Route::prefix("manage")->name("manage.")->group(function () {
     Route::get("/delete-product", [ManageController::class, "deleteProduct"])->name("delete-product")->middleware("isAdmin");
     Route::post("/category", [ManageController::class, "addCategory"])->name("add-category")->middleware("isAdmin");
     Route::get("/category/{id}", [ManageController::class, "deletedCategory"])->name("delete-category")->middleware("isAdmin");
+    Route::get("/order", [ManageController::class, "order"])->name("order")->middleware("isAdmin");
 
 });
 #endregion
