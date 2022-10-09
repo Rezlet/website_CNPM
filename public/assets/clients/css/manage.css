@@ -98,7 +98,7 @@
   pointer-events: none;
   transition: all 0.5s;
 }
-.manage__change.popup {
+.manage__change.popup, .manage__change.popup .manage__container__crud__form {
   opacity: 1;
   pointer-events: initial;
 }

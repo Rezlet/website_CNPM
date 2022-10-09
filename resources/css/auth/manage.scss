@@ -120,7 +120,7 @@
         pointer-events: none;
         transition: all 0.5s;
 
-        &.popup {
+        &.popup, &.popup .manage__container__crud__form {
             opacity: 1;
             pointer-events: initial;
         }

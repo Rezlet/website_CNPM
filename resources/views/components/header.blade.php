@@ -5,7 +5,7 @@
         <div class="header__container__logo">
             <a href="{{ route('home') }}">
 
-                <img src="//theme.hstatic.net/1000026716/1000440777/14/logo.svg?v=28492" alt=""
+                <img src="{{asset('./assets/clients/images/logo.png')}}" alt=""
                     class="header__container__logo__image header__desktop">
             </a>
             <div class="header__container__logo__menu">
@@ -64,14 +64,6 @@
                     </a>
                 @endif
 
-
-                <a href="/" class="header__container__feature__list__item  ">
-                    <i class="fa-solid fa-tag fa-flip-horizontal"></i>
-                    <p>
-                        Khuyến mãi
-
-                    </p>
-                </a>
                 <a href="{{ route('cart.index') }}"
                     class="header__container__feature__list__item header__container__feature__list__item-mobile">
                     <i class="fa-solid fa-cart-shopping fa-flip-horizontal"></i>
@@ -81,9 +73,17 @@
                     @endif
                     <p>
                         Giỏ hàng
-
                     </p>
                 </a>
+
+
+                <a href="/" class="header__container__feature__list__item  ">
+                    <i class="fa-solid fa-tag fa-flip-horizontal"></i>
+                    <p>
+                        Lịch sử mua hàng
+                    </p>
+                </a>
+
 
             </div>
         </div>

@@ -17,8 +17,8 @@ class AdminSeeder extends Seeder
     {
         DB::table("admins")->insert([
             "name" => "admin",
-            "password" => "admin",
-            "email" => "user@gmail.com",
+            "password" => "admin123",
+            "email" => "admin@gmail.com",
          
         ]);
 
@@ -26,6 +26,12 @@ class AdminSeeder extends Seeder
             "name" => "Tạ Thạch Lỗi",
             "password" => Hash::make("boi000biet"),
             "email" => "thanhtrollvt02@gmail.com",
+        ]);
+
+        DB::table("admins")->insert([
+            "name" => "Nguyễn Công Danh",
+            "password" => Hash::make("dnc2002"),
+            "email" => "congdanh02@gmail.com",
         ]);
     }
 }

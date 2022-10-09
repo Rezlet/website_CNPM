@@ -11124,6 +11124,9 @@ textarea.form-control-lg {
     align-items: center;
   }
 }
+.header__container__logo__image {
+  width: 100%;
+}
 .header__container__logo__menu {
   width: 100%;
   display: none;

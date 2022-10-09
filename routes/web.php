@@ -41,13 +41,20 @@ Route::prefix("auth")->name("auth.")->group(function () {
 });
 
 Route::prefix("manage")->name("manage.")->group(function () {
+    // [GET]
     Route::get("/product", [ManageController::class, "product"])->name("product")->middleware("isAdmin");
     Route::get("/category", [ManageController::class, "category"])->name("category")->middleware("isAdmin");
+    Route::get("/order-detail/{id}", [ManageController::class, "orderDetail"])->name("order-detail")->middleware("isAdmin");
+    Route::get("/order", [ManageController::class, "order"])->name("order")->middleware("isAdmin");
+    // [POST]
     Route::get("/delete-product", [ManageController::class, "deleteProduct"])->name("delete-product")->middleware("isAdmin");
     Route::post("/category", [ManageController::class, "addCategory"])->name("add-category")->middleware("isAdmin");
     Route::get("/category/{id}", [ManageController::class, "deletedCategory"])->name("delete-category")->middleware("isAdmin");
-    Route::get("/order", [ManageController::class, "order"])->name("order")->middleware("isAdmin");
-
+    Route::get("/order/{id}", [ManageController::class, "deletedOrder"])->name("delete-order")->middleware("isAdmin");
+    Route::post("/product", [ManageController::class, "addProduct"])->name("add-product")->middleware("isAdmin");
+    // [PUT]
+    Route::put("/category/{id}", [ManageController::class, "updatedCategory"])->name("update-category")->middleware("isAdmin");
+    Route::put("/product", [ManageController::class, "updatedProduct"])->name("update-product")->middleware("isAdmin");
 });
 #endregion
 
