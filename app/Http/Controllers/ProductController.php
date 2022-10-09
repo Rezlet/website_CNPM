@@ -21,10 +21,9 @@ class ProductController extends Controller
         $product = Product::where("title", $request->title)->first();
         if (session()->has("listProductId")) {
             $list = session()->get("listProductId");
-            if(in_array($product->id, $list)){
+            if (in_array($product->id, $list)) {
             } else {
                 array_push($list, $product->id);
-                
             }
             session()->pull("listProductId");
             session()->put("listProductId", $list);

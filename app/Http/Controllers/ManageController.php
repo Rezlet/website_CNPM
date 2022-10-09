@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\baseDB;
 use App\Models\Category;
 use App\Models\Order;
-use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -137,6 +136,4 @@ class ManageController extends Controller
         return view("ui.manage-order-detail",["orderDetails" => $orderDetails
        ]);
     }
-
-    
 }

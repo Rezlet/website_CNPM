@@ -104,7 +104,6 @@
                         <button type="submit"class="manage__change__confirm__item btn btn-primary">Thêm</button>
                         <div class="manage__change__confirm__item manage-close-change-js  btn btn-danger">Hủy</div>
                     </div>
-
                 </form>
             </div>
 

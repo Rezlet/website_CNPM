@@ -15,7 +15,7 @@ class Order extends Model
         "address",
         "total"
     ];
-    
+
     protected $nullable = [
         "note",
     ];
@@ -24,4 +24,6 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, "user_id", "id");
     }
+
+    use HasFactory;
 }
