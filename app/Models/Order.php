@@ -20,8 +20,8 @@ class Order extends Model
         "note",
     ];
 
-    public function details() {
-        return $this->hasMany(OrderDetail::class);
+    public function users()
+    {
+        return $this->belongsTo(User::class, "user_id", "id");
     }
-    use HasFactory;
 }

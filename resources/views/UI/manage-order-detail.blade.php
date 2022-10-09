@@ -33,38 +33,34 @@
 
             <table class="manage__container__table">
                 <thead>
-                    <th>Mã hóa đơn</th>
-                    <th>Tên Khách hàng</th>
-                    <th>Ngày đặt hàng</th>
-                    <th>Ngày nhận hàng</th>
-                    <th>Tổng đơn hàng</th>
-                    <th>Chức năng</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Thành giá</th>
+                    {{-- <th>Chức năng</th> --}}
                 </thead>
                 <tbody>
-                    @foreach ($orders as $order)
+                    @foreach ($orderDetails as $orderDetail)
                             <tr>
-                                <td >HĐ{{ $order->id }}</td>
-                                <td >{{ $order->users->name }}</td>
-                                <td >{{ $order->create_at }}</td>
-                                <td >{{ $order->order_date }}</td>
-                                <td >{{ number_format($order->total, 0, ',', ',')  }}</td>
-                                @php
-                                    $total += $order->total;
-                                @endphp
-                                <td><a href="{{route("manage.order-detail", ["id" => $order->id])}}" class="manage__container__table__change btn btn-primary">Chi tiết</a>
-                                    
+                                <td ><a href="{{route("products.detail", ["title" => $orderDetail->products->title])}}"><strong>{{ $orderDetail->products->title }}</strong></a></td>
+                                <td >{{ $orderDetail->amount }}</td>
+                                <td >{{ number_format($orderDetail->price, 0, ',', ',')  }}</td>
+                                {{-- <td><a class="manage__container__table__change btn btn-primary">Sửa</a>
+                                    <a class="manage__container__table__logout btn btn-danger">Xóa</a>
                                 </td>
+                                <input type="hidden" class="manage__container__table__id"
+                                    name="user__id__{{ $orderDetail->id }}" id="user__id__{{ $orderDetail->id }}"
+                                    value="{{ $orderDetail->id }}">
+                                <div class="manage__logout">
+                                    <h3 class="manage__logout__title">Bạn có muốn xóa sản phẩm này ?</h3>
+                                    <h4 class="manage__logout__content">Sản phẩm này sẽ biến mất vĩnh viễn</h4>
+                                    <div class="manage__logout__confirm">
+                                        <a href="{{ route('manage.delete-product', ['id' => $orderDetail->id]) }}"
+                                            class="manage__logout__confirm__item btn btn-danger">Xóa</a>
+                                        <a class="manage__logout__confirm__item manage-close-js  btn btn-primary">Hủy</a>
+                                    </div>
+                                </div> --}}
                             </tr>
                     @endforeach
-                    <tr>
-                        <td colspan="4">
-                            <strong>Tổng cộng</strong>
-                        </td>
-                        <td colspan="2">
-                            <strong>{{ number_format($total, 0, ',', ',')  }}</strong>
-                        </td>
-                    
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -100,7 +96,7 @@
                         aria-describedby="name-label">
 
                 </div>
-                <input type="hidden" name="id" id="id" value="{{ $order->id }}">
+                <input type="hidden" name="id" id="id" value="{{ $orderDetail->id }}">
                 <div class="manage__change__confirm">
                     <button type="submit"class="manage__change__confirm__item btn btn-primary">Sửa</button>
                     <div class="manage__change__confirm__item manage-close-change-js  btn btn-primary">Hủy</div>
