@@ -47,7 +47,7 @@
                                 <td class="manage__container__table__email">{{ $user->email }}</td>
                                 <td class="manage__container__table__numberphone">{{ $user->numberphone }}</td>
                                 <td class="manage__container__table__address">{{ $user->address }}</td>
-                                <td><a class="manage__container__table__change btn btn-primary">Sửa</a>
+                                <td><a class="manage__container__table__change btn btn-primary">Xem</a>
                                     <a class="manage__container__table__logout btn btn-danger">Xóa</a>
                                 </td>
                                 <input type="hidden" class="manage__container__table__id"
@@ -86,7 +86,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="name-label">Họ và tên</span>
                     </div>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Họ và tên..."
+                    <input type="text" class="form-control disable" id="name" name="name" placeholder="Họ và tên..."
                         value="" aria-label="Họ và tên..." aria-describedby="name-label">
 
                 </div>
@@ -95,7 +95,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="name-label">Số điện thoại</span>
                     </div>
-                    <input type="number" class="form-control" id="numberphone" name="numberphone"
+                    <input type="number" class="form-control disable" id="numberphone" name="numberphone"
                         placeholder="Số điện thoại ..." value="" aria-label="Số điện thoại..."
                         aria-describedby="name-label">
 
@@ -105,14 +105,13 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="name-label">Địa chỉ</span>
                     </div>
-                    <input type="text" class="form-control" id="address" name="address"
+                    <input type="text" class="form-control disable" id="address" name="address"
                         placeholder="Địa chỉ..." value="" aria-label="Địa chỉ..."
                         aria-describedby="name-label">
 
                 </div>
                 <input type="hidden" name="id" id="id" value="{{ $user->id }}">
                 <div class="manage__change__confirm">
-                    <button type="submit"class="manage__change__confirm__item btn btn-primary">Sửa</button>
                     <div class="manage__change__confirm__item manage-close-change-js  btn btn-primary">Hủy</div>
                 </div>
 

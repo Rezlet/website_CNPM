@@ -13,11 +13,11 @@ class FeaturedProduct extends Component
      *
      * @return void
      */
-    public function __construct($name = "",$title = "")
+    public function __construct($name = "", $title = "Sản phẩm hiện không tìm thấy", $amount = 10)
     {
         $this->name = $name;
-        if($name != "")
-            $this->title = $name;
+        $this->title = $title;
+        $this->amount = $amount;
     }
 
 
@@ -28,8 +28,9 @@ class FeaturedProduct extends Component
      */
     public function render()
     {
-        
-        $products =Product::where("category_id",Category::where("name", $this->name)->first()->id)->limit(10)->WhereNull("deleted_at")->get();
+
+        $products = Product::where("category_id", Category::where("name", $this->name)->first()->id)
+            ->limit(10)->WhereNull("deleted_at")->get();
         return view('components.featured-product', [
             "products" => $products,
             "title" => $this->title

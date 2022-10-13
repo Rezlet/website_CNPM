@@ -102,7 +102,7 @@
             <div class="header__function__categories__menu">
                 <div class="header__function__categories__menu__list">
                     @foreach ($categories as $category)
-                        <a href="{{ route('search.category', ['category' => $category->name]) }}"
+                        <a href="{{ route('search.category-name', ['category' => $category->name]) }}"
                             class="header__function__categories__menu__list__item">
                             <div class="header__function__categories__menu__list__item__content">
                                 <i class="fa-solid fa-laptop"></i>
@@ -169,7 +169,7 @@
         </div>
     </div>
 
-    <div class="header__mobile__overlay"></div>
+    {{-- <div class="header__mobile__overlay"></div>
     <div class="header__mobile">
         <div class="header__mobile__container container">
             <div class="header__mobile__container__title">
@@ -263,5 +263,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </header>
