@@ -8,11 +8,26 @@
     <div class="manage">
         <div class="manage__container container">
             <span class="text-danger">
-                @error('numberphone')
+                @error('title')
                     {{ $message }}
                 @enderror
 
-                @error('email')
+                @error('category_id')
+                    {{ $message }}
+                @enderror
+
+                
+                @error('price')
+                    {{ $message }}
+                @enderror
+
+                
+                @error('thumbnail')
+                    {{ $message }}
+                @enderror
+
+                
+                @error('description')
                     {{ $message }}
                 @enderror
             </span>

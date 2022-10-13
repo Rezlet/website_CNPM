@@ -8,9 +8,10 @@
     <div class="manage">
         <div class="manage__container container">
             <span class="text-danger">
-                @error('name')
-                    {{ $message }}
-                @enderror
+                @if (Session::has('errors'))
+                {{ Session::get('errors') }}
+            @endif
+
             </span>
 
             <span class="text-success">
@@ -18,13 +19,6 @@
                     {{ Session::get('success') }}
                 @endif
             </span>
-
-            <span class="text-errors">
-                @if (Session::has('errors'))
-                    {{ Session::get('errors') }}
-                @endif
-            </span>
-
 
             <div class="manage__container__function">
                 <a href="{{route("manage.product")}}" class="manage__container__function__item btn btn-link">Quản lý sản phẩm</a>

@@ -8,14 +8,21 @@
 @section('content')
     {{-- {{Session()->pull("loginId")}} --}}
 
-    @if (Session()->has('success'))
-        {{ Session()->pull('listProductId') }}
-        {{-- {{Session()->get("success")}} --}}
-    @endif
 
     @include('components.banner')
+    @if (Session()->has('success'))
+        {{ Session()->pull('listProductId') }}
+    @endif
+    <div class="container">
+        <span class="text-danger">
+            @if (Session()->has('errors'))
+                {{ Session()->get('errors') }}
+            @endif
+        </span>
+
+    </div>
     @foreach ($categories as $category)
-        <x-featured-product title="{{$category->name}} Bán chạy" name="{{ $category->name }}"></x-featured-product>
+        <x-featured-product title="{{ $category->name }} Bán chạy" name="{{ $category->name }}"></x-featured-product>
     @endforeach
 @endsection
 

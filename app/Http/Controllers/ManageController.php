@@ -20,7 +20,6 @@ class ManageController extends Controller
     {
         $products = Product::whereNull("deleted_at")->paginate(10);
         $categories = Category::all();
-
         return view("ui.manage-product", [
             "products" => $products,
             "categories" => $categories
@@ -31,8 +30,8 @@ class ManageController extends Controller
     {
 
         $rules = [
-            "title" => "required", "category_id" => "required", "price" => "required",
-            "thumbnail|max:255" => "required", "description" => "required"
+            "title" => "required|unique:products", "category_id" => "required", "price" => "required",
+            "thumbnail" => "required"
         ];
 
         $data = [
@@ -108,10 +107,11 @@ class ManageController extends Controller
 
     public function deletedCategory(Request $request)
     {
-        if ($this->baseDB->deleteOne("categories", $request->id)) {
-            return back()->with("success", "Cập nhập thành công");
-        }
-        return back()->with("errors", "Cập nhập thất bại");
+        // $isDelete = $this->baseDB->deleteOne("categories", $request->id);
+        // if ($isDelete) {
+        //     return back()->with("success", "Cập nhập thành công");
+        // }
+        return back()->with("errors", "Không thể xóa thể loại");
     }
 
     public function updatedCategory(Request $request)

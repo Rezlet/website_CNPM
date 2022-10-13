@@ -62,6 +62,7 @@ Route::prefix("manage")->name("manage.")->group(function () {
 #region search
 Route::prefix("search")->name("search.")->group(function () {
     Route::get("/", [HomeController::class, "index"])->name("home");
+    Route::get("/keyword", [SearchController::class, "keyword"])->name("keyword");
     Route::get("/{category}", [SearchController::class, "category"])->name("category-name");
 });
 #endregion search 

@@ -19,7 +19,9 @@
             </a>
         </div>
         <div class="header__container__search">
-            <form action="{{ route('home') }}" method="GET" class="header__container__search__form">
+            <form action="{{ route('search.keyword') }}" method="GET" class="header__container__search__form">
+                @csrf
+                @method("GET")
                 <input placeholder="Nhập mã hoặc tên sản phẩm..." type="text" id="keyword "name="keyword"
                     class="header__container__search__form__input">
                 <button class="header__container__search__form__button">

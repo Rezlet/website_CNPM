@@ -4,10 +4,10 @@
             <h2 class="featured__container__header__title">
                 {{ $title }}
             </h2>
-            {{-- <a href="{{ route('search.category-name', ['category' => $title]) }}"
+            <a href="{{ route('search.category-name', ['category' => $title]) }}"
                 class="featured__container__header__more">
                 xem thêm
-            </a> --}}
+            </a>
         </div>
 
         <div class="featured__container__wrapper ">
