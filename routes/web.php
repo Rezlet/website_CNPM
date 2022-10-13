@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Http\Response;
 /*
 |--------------------------------------------------------------------------
@@ -61,8 +62,7 @@ Route::prefix("manage")->name("manage.")->group(function () {
 #region search
 Route::prefix("search")->name("search.")->group(function () {
     Route::get("/", [HomeController::class, "index"])->name("home");
-    Route::get("/{attribute}", [HomeController::class, "index"])->name("attribute");
-    Route::get("/{category}", [HomeController::class, "index"])->name("category");
+    Route::get("/{category}", [SearchController::class, "category"])->name("category-name");
 });
 #endregion search 
 

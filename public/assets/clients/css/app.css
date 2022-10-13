@@ -11281,6 +11281,9 @@ textarea.form-control-lg {
 .header__function__categories__content svg {
   margin-right: 8px;
 }
+.header__function__categories__content:hover .header__function__categories__menu {
+  transform: scaleY(1);
+}
 .header__function__categories__content__text {
   margin: 0;
 }
@@ -11567,153 +11570,6 @@ textarea.form-control-lg {
 .header__function__guide__item:hover {
   background-color: #ea1c04;
   color: #fff;
-}
-.header__mobile {
-  position: fixed;
-  display: none;
-  width: 260px;
-  min-height: 100vh;
-  max-height: auto;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  padding: 10px 20px;
-  transition: 0.5s all;
-  transform: translateX(-100%);
-  z-index: 2;
-}
-.header__mobile.show {
-  transform: translateX(0);
-}
-.header__mobile__overlay {
-  position: absolute;
-  display: none;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(33, 37, 41, 0.6);
-  opacity: 0;
-  transition: 0.5s all;
-  pointer-events: none;
-}
-.header__mobile__overlay.show {
-  opacity: 1;
-  display: block;
-  pointer-events: initial;
-}
-.header__mobile__container__title {
-  font-weight: bold;
-  color: #ea1c04;
-}
-.header__mobile__container__login {
-  display: flex;
-  font-size: 14px;
-  gap: 12px;
-  padding: 16px 0;
-}
-.header__mobile__container__login__log {
-  font-size: 14px;
-}
-.header__mobile__container__login__log svg {
-  margin-right: 8px;
-}
-.header__mobile__container__categories {
-  transition: all 0.5s;
-  transform-origin: top left;
-}
-.header__mobile__container__categories__title {
-  font-weight: bold;
-}
-.header__mobile__container__categories__title svg {
-  margin-right: 4px;
-}
-.header__mobile__container__categories__category {
-  transition: all 0.5s;
-  transform-origin: top left;
-}
-.header__mobile__container__categories__category__content {
-  font-size: 14px;
-  flex-wrap: wrap;
-  align-items: center;
-  transition: all 0.5s;
-  transform-origin: top left;
-}
-.header__mobile__container__categories__category__content__container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 8px 0;
-}
-.header__mobile__container__categories__category__content__container svg {
-  transition: 0.5s all;
-}
-.header__mobile__container__categories__category__content.show .header__mobile__container__categories__category__content__menu {
-  scale: 1;
-}
-.header__mobile__container__categories__category__content.show .header__mobile__container__categories__category__content__container__icon {
-  transform: rotate(90deg);
-}
-.header__mobile__container__categories__category__content__title {
-  font-weight: bold;
-}
-.header__mobile__container__categories__category__content__menu {
-  width: 100%;
-  padding: 4px 8px;
-  transition: all 0.5s;
-  transform-origin: top left;
-  scale: 0;
-}
-.header__mobile__container__categories__category__content__menu.show {
-  scale: 1;
-}
-.header__mobile__container__categories__category__content__menu__item {
-  transition: all 0.5s;
-  transform-origin: top left;
-}
-.header__mobile__container__categories__category__content__menu__item__subcontent {
-  display: flex;
-  font-weight: 13px;
-  align-items: center;
-  flex-wrap: wrap;
-  transition: all 0.5s;
-  transform-origin: top left;
-}
-.header__mobile__container__categories__category__content__menu__item__subcontent__title {
-  width: 100%;
-}
-.header__mobile__container__categories__category__content__menu__item__subcontent.show {
-  scale: 1;
-}
-.header__mobile__container__categories__category__content__menu__item__subcontent svg {
-  font-weight: 10px;
-  margin-left: 4px;
-}
-.header__mobile__container__categories__category__content__menu__item__subcontent__list {
-  transition: all 0.5s;
-  width: 100%;
-  margin: 4px 8px;
-  display: none;
-}
-.header__mobile__container__categories__category__content__menu__item__subcontent__list.show {
-  display: block;
-}
-.header__mobile__container__information__title {
-  font-weight: bold;
-}
-.header__mobile__container__information__list__item {
-  display: flex;
-  padding: 6px 0;
-}
-.header__mobile__container__information__list__item svg {
-  margin-right: 10px;
-}
-@media screen and (max-width: 768px) {
-  .header__mobile {
-    display: block;
-  }
 }
 
 .footer {

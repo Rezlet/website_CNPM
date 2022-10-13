@@ -68,7 +68,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="name-label">Họ và tên</span>
                     </div>
-                    <input type="text" class="form-control disable" id="name" name="name" placeholder="Họ và tên..."
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Họ và tên..."
                         value="{{ $user->name }}" aria-label="Họ và tên..." aria-describedby="name-label">
 
                 </div>

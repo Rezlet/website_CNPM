@@ -6,20 +6,12 @@
 @endsection
 
 @section('content')
-    {{-- {{Session()->pull("loginId")}} --}}
-
     @if (Session()->has('success'))
         {{ Session()->pull('listProductId') }}
-        {{-- {{Session()->get("success")}} --}}
     @endif
-
     @include('components.banner')
-    @foreach ($categories as $category)
-        <x-featured-product title="{{$category->name}} Bán chạy" name="{{ $category->name }}"></x-featured-product>
-    @endforeach
+    <x-featured-product title="Những {{$category}} tìm thấy" name="{{ $category }}" amount="{{100}}"></x-featured-product>
 @endsection
-
-
 @section('js')
     <script src="{{ asset('assets/clients/js/home.js') }}"></script>
 @endsection
